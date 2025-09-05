@@ -1,1 +1,40 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <title>Тест на API</title>
+</head>
+<body>
+  <h1>Тестова поръчка</h1>
+  <button id="testBtn">Изпрати тест</button>
+  <p id="status"></p>
+
+  <script>
+    // Сложи тук твоя Apps Script URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyGVsSI-PF7Emz-6rxMjV2pROBhGDAB7VK9PyweqIiX55izv1RWrCK5JAGrvF4Rb8-lFA/exec";
+
+    document.getElementById("testBtn").addEventListener("click", () => {
+      const data = {
+        име: "Тест Иванов",
+        телефон: "0888123456",
+        адрес: "гр. София, ул. Тестова 1",
+        броики: "1"
+      };
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(r => r.text())
+      .then(txt => {
+        document.getElementById("status").textContent = "Отговор: " + txt;
+      })
+      .catch(err => {
+        document.getElementById("status").textContent = "⚠️ Грешка: " + err;
+      });
+    });
+  </script>
+</body>
+</html>
 
