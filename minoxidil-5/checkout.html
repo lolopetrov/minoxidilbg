@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <title>Поръчай Миноксидил 5%</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:sans-serif;background:#f8fafc;padding:20px}
+    form{max-width:420px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+    h1{text-align:center}
+    label{display:block;margin:12px 0 4px}
+    input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px}
+    button{margin-top:16px;background:#1f8a5f;color:#fff;border:none;padding:12px 18px;border-radius:8px;font-size:1rem;cursor:pointer;width:100%}
+    #status{text-align:center;margin-top:15px;font-weight:600}
+  </style>
+</head>
+<body>
+  <h1>Поръчай Миноксидил 5%</h1>
+  <p style="text-align:center">Попълнете данните за доставка (наложен платеж):</p>
+
+  <form id="orderForm">
+    <label>Име и фамилия:</label>
+    <input type="text" name="име" required>
+
+    <label>Телефон:</label>
+    <input type="tel" name="телефон" required>
+
+    <label>Адрес за доставка:</label>
+    <textarea name="адрес" rows="3" required></textarea>
+
+    <label>Количество:</label>
+    <input type="number" name="броики" min="1" value="1">
+
+    <button type="submit">Изпрати поръчка</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    // ТУК СЛОЖИ твоя Apps Script URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyGVsSI-PF7Emz-6rxMjV2pROBhGDAB7VK9PyweqIiX55izv1RWrCK5JAGrvF4Rb8-lFA/exec";
+
+    document.getElementById("orderForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(r => {
+        document.getElementById("status").textContent = "✅ Поръчката е изпратена успешно!";
+        e.target.reset();
+      })
+      .catch(err => {
+        document.getElementById("status").textContent = "⚠️ Възникна грешка. Опитайте пак.";
+      });
+    });
+  </script>
+</body>
+</html>
