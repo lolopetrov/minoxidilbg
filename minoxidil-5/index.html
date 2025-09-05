@@ -63,7 +63,7 @@
     "sku":"MINOX-5-100",
     "offers":{
       "@type":"Offer",
-      "url":"https://minoxidilbg.com/checkout",
+      "url":"https://minoxidilbg.com/minoxidil-5/checkout.html",
       "priceCurrency":"BGN",
       "price":"49.00",
       "availability":"https://schema.org/InStock"
@@ -86,20 +86,17 @@
         </div>
 
         <p class="price">Цена: <strong>49.00 лв.</strong></p>
-        <!-- РЕДАКТИРАЙ: сложи своя checkout URL в href -->
-        <a class="cta" id="buyTop" href="/checkout?product=minoxidil-5">🛒 Купи сега</a>
+        <a class="cta" id="buyTop" href="checkout.html">🛒 Купи сега</a>
 
         <div class="trust" style="margin-top:12px">
           <div class="item">🚚 <span class="muted">Безплатна доставка над 80 лв.</span></div>
           <div class="item">🔒 <span class="muted">Сигурно плащане</span></div>
           <div class="item">✅ <span class="muted">Оригинален продукт</span></div>
         </div>
-
       </div>
 
       <aside class="product-card">
-        <!-- РЕДАКТИРАЙ: постави реален път до изображение на продукта -->
-        <img src="https://minoxidilbg.com/path-to-image.jpg" alt="Миноксидил 5% - опаковка" />
+        <img src="https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif" alt="Миноксидил 5% - опаковка" />
         <p style="margin:10px 0 0;color:var(--muted);font-size:0.95rem">100 ml | Флакон с пипета</p>
       </aside>
     </div>
@@ -141,25 +138,15 @@
   <!-- Sticky buy bar for mobile -->
   <div class="sticky-buy" role="region" aria-label="Купи сега">
     <div class="row">
-      <div style="min-width:64px"> <img src="https://minoxidilbg.com/path-to-image-thumb.jpg" alt="product" style="height:48px;border-radius:6px;object-fit:cover"/></div>
+      <div style="min-width:64px"> 
+        <img src="https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif" alt="product" style="height:48px;border-radius:6px;object-fit:cover"/>
+      </div>
       <div style="flex:1">
         <div style="font-weight:700">Миноксидил 5%</div>
         <div class="price">49.00 лв.</div>
       </div>
-      <a class="cta" href="/checkout?product=minoxidil-5">🛒 Купи</a>
+      <a class="cta" href="checkout.html">🛒 Купи</a>
     </div>
   </div>
-
-  <script>
-    // Optional: smooth scroll to buy
-    document.getElementById('buyTop').addEventListener('click', function(e){
-      // If your checkout is external, remove this script. This keeps the example internal.
-      var href = this.getAttribute('href');
-      if(href && href.indexOf('#')===0){
-        e.preventDefault();
-        document.querySelector(href).scrollIntoView({behavior:'smooth'});
-      }
-    });
-  </script>
 </body>
 </html>
