@@ -14,6 +14,9 @@ label{display:block;margin:10px 0 5px;font-weight:600}
 input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
 button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
 #status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
+
+/* Si NO quieres barra sticky en móvil, mantenla oculta: */
+.sticky-buy{display:none;}
 </style>
 </head>
 <body>
@@ -22,7 +25,7 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   <img src="https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif" alt="Миноксидил 5%" class="product-img">
   <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
-  <form id="orderForm">
+  <form id="orderForm" novalidate>
     <label>Име и фамилия:</label>
     <input type="text" name="име" required>
 
@@ -32,18 +35,15 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     <label>Адрес за доставка:</label>
     <textarea name="адрес" rows="3" required></textarea>
 
-    <!-- Campo de email del cliente con validación y autocompletado -->
-    <div style="margin-bottom:16px">
-      <label for="customerEmail" style="font-weight:600;display:block;margin-bottom:6px">
-        Вашият имейл:
-      </label>
-      <input 
-        type="email" 
-        id="customerEmail" 
-        name="customerEmail" 
-        placeholder="name@example.com" 
+    <!-- Имейл на клиента (както го имаш: customerEmail) -->
+    <div style="margin-top:10px">
+      <label for="customerEmail">Вашият имейл:</label>
+      <input
+        type="email"
+        id="customerEmail"
+        name="customerEmail"
+        placeholder="name@example.com"
         required
-        style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px"
       >
       <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">
         Моля, въведете валиден имейл адрес.
@@ -51,7 +51,7 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     </div>
 
     <label>Количество:</label>
-    <input type="number" name="броики" min="1" value="1">
+    <input type="number" name="броики" min="1" value="1" required>
 
     <button type="submit">🛒 Изпрати поръчка</button>
   </form>
@@ -60,59 +60,66 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
 </div>
 
 <script>
+  // 🔗 Твоят Web App URL (Google Apps Script)
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbywLQRWuUWkRg-bAbk6gzRn_a0ISeg_b7oT0qp6WPN10i9RjdhCdV3ZpUncmxVJRDXrpA/exec";
+
+  const form = document.getElementById('orderForm');
+  const statusEl = document.getElementById('status');
   const emailInput = document.getElementById('customerEmail');
-  const emailError = document.getElementById('emailError');
+  const emailError  = document.getElementById('emailError');
 
-  // ✅ Cargar email guardado si existe
-  const savedEmail = localStorage.getItem('checkoutEmail');
-  if (savedEmail) {
-    emailInput.value = savedEmail;
-  }
-
-  // Validación en tiempo real y guardado en localStorage
+  // Валидиране на имейл в реално време (визуално)
   emailInput.addEventListener('input', () => {
     if (emailInput.validity.valid) {
       emailError.style.display = 'none';
-      emailInput.style.borderColor = '#ccc';
-      localStorage.setItem('checkoutEmail', emailInput.value);
+      emailInput.style.borderColor = '#ddd';
     } else {
       emailError.style.display = 'block';
       emailInput.style.borderColor = '#d32f2f';
     }
   });
 
-  const form = document.getElementById('orderForm');
-  const status = document.getElementById('status');
-  const webAppUrl = "https://script.google.com/macros/s/AKfycbztcMh89CI8F7MWkzKXueM0h99_es965w-lGjdKMapRrTrwjON-xH8L6ByBC5dDJwy-AA/exec";
-
+  // Изпращане към Google Apps Script
   function sendOrder(data) {
-    const formData = new URLSearchParams(data);
-    fetch(webAppUrl, { method:'POST', body: formData })
+    const body = new URLSearchParams(data);
+    fetch(webAppUrl, { method:'POST', body })
       .then(r => r.text())
       .then(txt => {
-        status.style.color = 'green';
-        status.style.display = 'block';
+        statusEl.style.color = 'green';
+        statusEl.textContent = '✅ Поръчката е изпратена успешно!';
+        statusEl.style.display = 'block';
         form.reset();
-        localStorage.removeItem('checkoutEmail'); // ✅ limpiar email al finalizar
-        status.scrollIntoView({behavior:'smooth', block:'center'});
+        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
       })
       .catch(err => {
-        status.style.color = 'red';
-        status.style.display = 'block';
-        status.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
-        status.scrollIntoView({behavior:'smooth', block:'center'});
+        statusEl.style.color = 'red';
+        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
+        statusEl.style.display = 'block';
+        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
       });
   }
 
-  form.addEventListener('submit', e => {
+  // Submit
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    // Ако имейлът е невалиден, спиране
+    if (!emailInput.validity.valid) {
+      emailError.style.display = 'block';
+      emailInput.focus();
+      return;
+    }
+
+    // Данни за изпращане (запазваме твоите имена на полета)
     const data = {
       име: form.име.value,
       телефон: form.телефон.value,
       адрес: form.адрес.value,
-      customerEmail: form.customerEmail.value,
-      броики: form.броики.value
+      броики: form.броики.value,
+      customerEmail: form.customerEmail.value, // 👈 Идва като e.parameter.customerEmail
+      producto: "Миноксидил 5%"               // 👈 За 2% смени на "Миноксидил 2%"
     };
+
     sendOrder(data);
   });
 </script>
