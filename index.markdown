@@ -23,9 +23,22 @@ permalink: /
 Миноксидил няма силен аромат и се приема добре от повечето потребители.  
 Терапията с миноксидил намира приложение и при алопеция ареата.  
 
-👉 [Поръчай миноксидил 2% онлайн](https://www.minoxidil4men.com/minox2){:rel="nofollow sponsored"} 
+<div style="margin-top:20px; text-align:center; display:flex; flex-direction:column; gap:12px; max-width:320px; margin-left:auto; margin-right:auto;">
+  
+  <!-- Botón para Minoxidil 2% -->
+  <a href="https://minoxidilbg.com/minoxidil-2/" 
+     style="display:inline-block; padding:14px 20px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
+    👉 Миноксидил 2% за жени — Поръчай онлайн
+  </a>
 
-👉 [Поръчай миноксидил 5% онлайн](https://www.minoxidil4men.com/minoxidil-5-procenta/ao069LGw-){:rel="nofollow sponsored"}
+  <!-- Botón para Minoxidil 5% -->
+  <a href="https://minoxidilbg.com/minoxidil-5/" 
+     style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
+    👉 Миноксидил 5% за мъже — Поръчай онлайн
+  </a>
+
+</div>
+
 
 ---
 
