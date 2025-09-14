@@ -23,7 +23,16 @@ permalink: /minoxidil-za-mazhe/
 
 Миноксидилът не е чудо за една нощ, но при дисциплина и постоянство може да промени значително начина, по който изглежда косата ви.  
 
-👉 [Поръчай миноксидил 5% онлайн](https://www.minoxidil4men.com/minoxidil-5-procenta/ao069LGw-){:rel="nofollow sponsored"} 
+<div style="margin-top:20px; text-align:center; display:flex; flex-direction:column; gap:12px; max-width:320px; margin-left:auto; margin-right:auto;">
+  
+ 
+  <!-- Botón para Minoxidil 5% -->
+  <a href="https://minoxidilbg.com/minoxidil-5/" 
+     style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
+    👉 Миноксидил 5% за мъже — Поръчай онлайн
+  </a>
+
+</div>
 
 
 
