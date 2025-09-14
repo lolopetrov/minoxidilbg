@@ -59,8 +59,10 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   const statusEl = document.getElementById('status');
   const emailEl = document.getElementById('customerEmail');
 
+  // Tu Web App URL (deja la tuya)
   const webAppUrl = "https://script.google.com/macros/s/AKfycbyZ1PN9x-4CrkwmXFfP4hxTdivBRW9GVCT3xgR-se04XA9CoYlv1Nua5dcWj6nXlkuROg/exec";
 
+  // Igual que antes
   function sendOrder(data) {
     const body = new URLSearchParams(data); // x-www-form-urlencoded
     fetch(webAppUrl, { method: 'POST', body })
@@ -80,24 +82,27 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
       });
   }
 
+  // SOLO cambia este submit para leer el hidden "producto"
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const emailVal = (emailEl?.value || '').trim();  // 👈 tomamos el email por ID
+    const emailVal = (emailEl?.value || '').trim();
+    const product  = (form.producto?.value || "Миноксидил 2%"); // ← lee el hidden
 
     const data = {
       име: form.име.value,
       телефон: form.телефон.value,
       адрес: form.адрес.value,
       броики: form.броики.value,
-      customerEmail: emailVal,  // 👈 tal como está tu input
-      email: emailVal,          // 👈 clave estándar extra, por si acaso
-      producto: "Миноксидил 2%"
+      customerEmail: emailVal, // se envía con ambas claves
+      email: emailVal,         // por compatibilidad
+      producto: product        // ← garantizado "Миноксидил 2%"
     };
 
     sendOrder(data);
   });
 </script>
+
 
 </body>
 </html>
