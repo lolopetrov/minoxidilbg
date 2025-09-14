@@ -104,17 +104,21 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
       });
   }
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = {
-      име: form.име.value,
-      телефон: form.телефон.value,
-      адрес: form.адрес.value,
-      customerEmail: form.customerEmail.value,
-      броики: form.броики.value
-    };
-    sendOrder(data);
-  });
+ form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const data = {
+    име: form.име.value,
+    телефон: form.телефон.value,
+    адрес: form.адрес.value,
+    броики: form.броики.value,
+    email: form.customerEmail.value,  // 👈 Campo email cliente
+    producto: "Миноксидил 5%"         // 👈 Cambia a 2% en la otra landing
+  };
+
+  sendOrder(data);
+});
+
 </script>
 </body>
 </html>
