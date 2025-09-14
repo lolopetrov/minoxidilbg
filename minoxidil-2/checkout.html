@@ -60,38 +60,24 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
 </div>
 
 <script>
-  // 🔗 Твоят Web App URL (Google Apps Script)
-  const webAppUrl = "https://script.google.com/macros/s/AKfycbywLQRWuUWkRg-bAbk6gzRn_a0ISeg_b7oT0qp6WPN10i9RjdhCdV3ZpUncmxVJRDXrpA/exec";
-
   const form = document.getElementById('orderForm');
   const statusEl = document.getElementById('status');
-  const emailInput = document.getElementById('customerEmail');
-  const emailError  = document.getElementById('emailError');
+  const emailEl = document.getElementById('customerEmail');
 
-  // Валидиране на имейл в реално време (визуално)
-  emailInput.addEventListener('input', () => {
-    if (emailInput.validity.valid) {
-      emailError.style.display = 'none';
-      emailInput.style.borderColor = '#ddd';
-    } else {
-      emailError.style.display = 'block';
-      emailInput.style.borderColor = '#d32f2f';
-    }
-  });
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbyZ1PN9x-4CrkwmXFfP4hxTdivBRW9GVCT3xgR-se04XA9CoYlv1Nua5dcWj6nXlkuROg/exec";
 
-  // Изпращане към Google Apps Script
   function sendOrder(data) {
-    const body = new URLSearchParams(data);
-    fetch(webAppUrl, { method:'POST', body })
+    const body = new URLSearchParams(data); // x-www-form-urlencoded
+    fetch(webAppUrl, { method: 'POST', body })
       .then(r => r.text())
-      .then(txt => {
+      .then(() => {
         statusEl.style.color = 'green';
         statusEl.textContent = '✅ Поръчката е изпратена успешно!';
         statusEl.style.display = 'block';
         form.reset();
         statusEl.scrollIntoView({behavior:'smooth', block:'center'});
       })
-      .catch(err => {
+      .catch(() => {
         statusEl.style.color = 'red';
         statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
         statusEl.style.display = 'block';
@@ -99,29 +85,24 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
       });
   }
 
-  // Submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Ако имейлът е невалиден, спиране
-    if (!emailInput.validity.valid) {
-      emailError.style.display = 'block';
-      emailInput.focus();
-      return;
-    }
+    const emailVal = (emailEl?.value || '').trim();  // 👈 tomamos el email por ID
 
-    // Данни за изпращане (запазваме твоите имена на полета)
     const data = {
       име: form.име.value,
       телефон: form.телефон.value,
       адрес: form.адрес.value,
       броики: form.броики.value,
-      customerEmail: form.customerEmail.value, // 👈 Идва като e.parameter.customerEmail
-      producto: "Миноксидил 2%"               // 👈 За 2% смени на "Миноксидил 2%"
+      customerEmail: emailVal,  // 👈 tal como está tu input
+      email: emailVal,          // 👈 clave estándar extra, por si acaso
+      producto: "Миноксидил 5%"
     };
 
     sendOrder(data);
   });
 </script>
+
 </body>
 </html>
