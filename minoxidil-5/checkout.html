@@ -60,68 +60,46 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
 </div>
 
 <script>
-  // 🔗 Твоят Web App URL (Google Apps Script)
+  const form = document.getElementById('orderForm');
+  const status = document.getElementById('status');
+  const emailEl = document.getElementById('customerEmail'); // 👈 tomamos el email por ID
+
   const webAppUrl = "https://script.google.com/macros/s/AKfycbywLQRWuUWkRg-bAbk6gzRn_a0ISeg_b7oT0qp6WPN10i9RjdhCdV3ZpUncmxVJRDXrpA/exec";
 
-  const form = document.getElementById('orderForm');
-  const statusEl = document.getElementById('status');
-  const emailInput = document.getElementById('customerEmail');
-  const emailError  = document.getElementById('emailError');
-
-  // Валидиране на имейл в реално време (визуално)
-  emailInput.addEventListener('input', () => {
-    if (emailInput.validity.valid) {
-      emailError.style.display = 'none';
-      emailInput.style.borderColor = '#ddd';
-    } else {
-      emailError.style.display = 'block';
-      emailInput.style.borderColor = '#d32f2f';
-    }
-  });
-
-  // Изпращане към Google Apps Script
   function sendOrder(data) {
     const body = new URLSearchParams(data);
-    fetch(webAppUrl, { method:'POST', body })
+    fetch(webAppUrl, { method: 'POST', body })
       .then(r => r.text())
-      .then(txt => {
-        statusEl.style.color = 'green';
-        statusEl.textContent = '✅ Поръчката е изпратена успешно!';
-        statusEl.style.display = 'block';
+      .then(() => {
+        status.style.color = 'green';
+        status.textContent = '✅ Поръчката е изпратена успешно!';
+        status.style.display = 'block';
         form.reset();
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+        status.scrollIntoView({behavior:'smooth', block:'center'});
       })
-      .catch(err => {
-        statusEl.style.color = 'red';
-        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
-        statusEl.style.display = 'block';
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      .catch(() => {
+        status.style.color = 'red';
+        status.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
+        status.style.display = 'block';
+        status.scrollIntoView({behavior:'smooth', block:'center'});
       });
   }
 
-  // Submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Ако имейлът е невалиден, спиране
-    if (!emailInput.validity.valid) {
-      emailError.style.display = 'block';
-      emailInput.focus();
-      return;
-    }
-
-    // Данни за изпращане (запазваме твоите имена на полета)
     const data = {
       име: form.име.value,
       телефон: form.телефон.value,
       адрес: form.адрес.value,
       броики: form.броики.value,
-      customerEmail: form.customerEmail.value, // 👈 Идва като e.parameter.customerEmail
-      producto: "Миноксидил 5%"               // 👈 За 2% смени на "Миноксидил 2%"
+      customerEmail: emailEl.value.trim(),  // 👈 ENVIAMOS EXACTAMENTE "customerEmail"
+      producto: "Миноксидил 5%"            // 👈 en el 2% cambia a "Миноксидил 2%"
     };
 
     sendOrder(data);
   });
 </script>
+
 </body>
 </html>
