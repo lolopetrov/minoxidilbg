@@ -25,36 +25,31 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
   <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
-  <form id="orderForm" novalidate>
-    <label>Име и фамилия:</label>
-    <input type="text" name="име" required>
+ <form id="orderForm" novalidate>
+  <!-- 👇 Hidden que fija el producto de esta página -->
+  <input type="hidden" name="producto" value="Миноксидил 2%">
 
-    <label>Телефон:</label>
-    <input type="tel" name="телефон" required>
+  <label>Име и фамилия:</label>
+  <input type="text" name="име" required>
 
-    <label>Адрес за доставка:</label>
-    <textarea name="адрес" rows="3" required></textarea>
+  <label>Телефон:</label>
+  <input type="tel" name="телефон" required>
 
-    <!-- Имейл на клиента (както го имаш: customerEmail) -->
-    <div style="margin-top:10px">
-      <label for="customerEmail">Вашият имейл:</label>
-      <input
-        type="email"
-        id="customerEmail"
-        name="customerEmail"
-        placeholder="name@example.com"
-        required
-      >
-      <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">
-        Моля, въведете валиден имейл адрес.
-      </small>
-    </div>
+  <label>Адрес за доставка:</label>
+  <textarea name="адрес" rows="3" required></textarea>
 
-    <label>Количество:</label>
-    <input type="number" name="броики" min="1" value="1" required>
+  <div style="margin-top:10px">
+    <label for="customerEmail">Вашият имейл:</label>
+    <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required>
+    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
+  </div>
 
-    <button type="submit">🛒 Изпрати поръчка</button>
-  </form>
+  <label>Количество:</label>
+  <input type="number" name="броики" min="1" value="1" required>
+
+  <button type="submit">🛒 Изпрати поръчка</button>
+</form>
+
 
   <p id="status">✅ Поръчката е изпратена успешно!</p>
 </div>
