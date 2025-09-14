@@ -1,58 +1,88 @@
-<form id="orderForm">
-  <label>Име и фамилия:</label>
-  <input type="text" name="име" required>
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поръчай Миноксидил 5%</title>
+<style>
+:root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
+.container{max-width:500px;margin:0 auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
+h1{text-align:center;margin-bottom:15px}
+.product-img{width:100%;border-radius:8px;margin-bottom:15px}
+label{display:block;margin:10px 0 5px;font-weight:600}
+input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
+button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
+#status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Поръчай Миноксидил 5%</h1>
+  <img src="https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif" alt="Миноксидил 5%" class="product-img">
+  <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
-  <label>Телефон:</label>
-  <input type="tel" name="телефон" required>
+  <form id="orderForm">
+    <label>Име и фамилия:</label>
+    <input type="text" name="име" required>
 
-  <label>Адрес за доставка:</label>
-  <textarea name="адрес" rows="3" required></textarea>
+    <label>Телефон:</label>
+    <input type="tel" name="телефон" required>
 
-  <!-- Campo de email del cliente con validación -->
-  <div style="margin-bottom:16px">
-    <label for="email" style="font-weight:600;display:block;margin-bottom:6px">
-      Вашият имейл:
-    </label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email"  <!-- 👈 ahora coincide con e.parameter.email -->
-      placeholder="name@example.com" 
-      required
-      style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px"
-    >
-    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">
-      Моля, въведете валиден имейл адрес.
-    </small>
-  </div>
+    <label>Адрес за доставка:</label>
+    <textarea name="адрес" rows="3" required></textarea>
 
-  <label>Количество:</label>
-  <input type="number" name="броики" min="1" value="1">
+    <!-- Campo de email del cliente con validación y autocompletado -->
+    <div style="margin-bottom:16px">
+      <label for="customerEmail" style="font-weight:600;display:block;margin-bottom:6px">
+        Вашият имейл:
+      </label>
+      <input 
+        type="email" 
+        id="customerEmail" 
+        name="customerEmail" 
+        placeholder="name@example.com" 
+        required
+        style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px"
+      >
+      <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">
+        Моля, въведете валиден имейл адрес.
+      </small>
+    </div>
 
-  <button type="submit">🛒 Изпрати поръчка</button>
-</form>
+    <label>Количество:</label>
+    <input type="number" name="броики" min="1" value="1">
 
-<p id="status" style="text-align:center;margin-top:15px;font-weight:600;color:green;display:none">
-  ✅ Поръчката е изпратена успешно!
-</p>
+    <button type="submit">🛒 Изпрати поръчка</button>
+  </form>
+
+  <p id="status">✅ Поръчката е изпратена успешно!</p>
+</div>
 
 <script>
-  const form = document.getElementById('orderForm');
-  const status = document.getElementById('status');
-  const emailInput = document.getElementById('email');
+  const emailInput = document.getElementById('customerEmail');
   const emailError = document.getElementById('emailError');
 
-  // Validación en tiempo real del email
+  // ✅ Cargar email guardado si existe
+  const savedEmail = localStorage.getItem('checkoutEmail');
+  if (savedEmail) {
+    emailInput.value = savedEmail;
+  }
+
+  // Validación en tiempo real y guardado en localStorage
   emailInput.addEventListener('input', () => {
     if (emailInput.validity.valid) {
       emailError.style.display = 'none';
       emailInput.style.borderColor = '#ccc';
+      localStorage.setItem('checkoutEmail', emailInput.value);
     } else {
       emailError.style.display = 'block';
       emailInput.style.borderColor = '#d32f2f';
     }
   });
 
+  const form = document.getElementById('orderForm');
+  const status = document.getElementById('status');
   const webAppUrl = "https://script.google.com/macros/s/AKfycbztcMh89CI8F7MWkzKXueM0h99_es965w-lGjdKMapRrTrwjON-xH8L6ByBC5dDJwy-AA/exec";
 
   function sendOrder(data) {
@@ -63,6 +93,7 @@
         status.style.color = 'green';
         status.style.display = 'block';
         form.reset();
+        localStorage.removeItem('checkoutEmail'); // ✅ limpiar email al finalizar
         status.scrollIntoView({behavior:'smooth', block:'center'});
       })
       .catch(err => {
@@ -75,16 +106,15 @@
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-
     const data = {
       име: form.име.value,
       телефон: form.телефон.value,
       адрес: form.адрес.value,
-      броики: form.броики.value,
-      email: form.email.value,          // 👈 email se envía con el name correcto
-      producto: "Миноксидил 5%"        // 👈 cambia a 2% en el funnel de mujeres
+      customerEmail: form.customerEmail.value,
+      броики: form.броики.value
     };
-
     sendOrder(data);
   });
 </script>
+</body>
+</html>
