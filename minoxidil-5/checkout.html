@@ -103,6 +103,23 @@ form.addEventListener('submit', e => {
   sendOrder(data);
 });
 
+<!-- Campo de email del cliente -->
+<div style="margin-bottom:16px">
+  <label for="customerEmail" style="font-weight:600;display:block;margin-bottom:6px">
+    Вашият имейл:
+  </label>
+  <input 
+    type="email" 
+    id="customerEmail" 
+    name="customerEmail" 
+    placeholder="name@example.com" 
+    required
+    style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px"
+  >
+</div>
+
+
+  
 // Sticky бутон
 document.getElementById('stickyBuyBtn').addEventListener('click', e => {
   e.preventDefault();
@@ -118,34 +135,7 @@ document.getElementById('stickyBuyBtn').addEventListener('click', e => {
 });
 </script>
 
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"Миноксидил 5%",
-  "image":"https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif",
-  "description":"Миноксидил 5% — ефективно решение против косопад. Подходящ за мъже и жени.",
-  "sku":"MINOX-5-100",
-  "offers":{
-    "@type":"Offer",
-    "url":"https://minoxidilbg.com/minoxidil-5/checkout.html",
-    "priceCurrency":"BGN",
-    "price":"49.00",
-    "availability":"https://schema.org/InStock"
-  },
-  "brand": {
-    "@type": "Organization",
-    "name": "MinoxidilBG",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+359878914807",
-      "email": "info@minoxidilbg.com",
-      "contactType": "customer support",
-      "availableLanguage": ["Bulgarian", "English"]
-    }
-  }
-}
-</script>
+ 
 
 </body>
 </html>
