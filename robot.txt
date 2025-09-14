@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minoxidilbg.com/sitemap.xml
+Sitemap: https://minoxidilbg.com/sitemap-extra.xml
