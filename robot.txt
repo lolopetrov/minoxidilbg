@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 
+Disallow: /minoxidil-5/checkout.html
+Disallow: /minoxidil-2/checkout.html
+Disallow: /minoxidil-5/test.html
+
 Sitemap: https://minoxidilbg.com/sitemap.xml
 Sitemap: https://minoxidilbg.com/sitemap-extra.xml
