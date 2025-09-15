@@ -5,38 +5,65 @@ nav_exclude: true
 ---
 
 <main class="container">
-  <h1>Въпроси и Отговори за Миноксидил</h1>
+  <h1>Въпроси и Отговори (Q&A)</h1>
+  <p class="muted">Тук ще откриете отговори на често задавани въпроси за Миноксидил. Ако не намирате информацията, която търсите, задайте своя въпрос чрез формата и ще го добавим в секцията.</p>
 
+  <!-- FAQ inicial -->
   <section class="faq">
+    <h2>Често задавани въпроси</h2>
     <details>
       <summary>Колко време трябва да използвам Миноксидил?</summary>
       <p>Минимум 3–6 месеца за устойчив резултат. При спиране косопадът може да се възобнови.</p>
     </details>
-
     <details>
-      <summary>Могат ли жените да използват Миноксидил?</summary>
-      <p>Да, препоръчва се 2% разтвор за жени и хора с чувствителен скалп.</p>
+      <summary>Кой разтвор е по-добър – Миноксидил 2% или 5%?</summary>
+      <p>2% е по-щадящ, подходящ за жени и чувствителен скалп. 5% е по-силен и обикновено се препоръчва за мъже.</p>
     </details>
-
     <details>
-      <summary>Какви са възможните странични ефекти?</summary>
-      <p>Може да има локално зачервяване, сърбеж или сухота. Ако симптомите са силни – преустановете и се консултирайте с лекар.</p>
+      <summary>Има ли странични ефекти?</summary>
+      <p>Може да има леко зачервяване, сухота или сърбеж. При силни симптоми – прекратете и се консултирайте с лекар.</p>
     </details>
   </section>
 
-  <section class="ask-form" style="margin-top:30px">
+  <!-- Formulario de envío con Google Apps Script -->
+  <section style="margin-top:40px">
     <h2>Задай своя въпрос</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <label for="name">Име:</label><br>
-      <input type="text" id="name" name="name" required><br><br>
+    <p class="muted">Изпратете вашия въпрос и ние ще го добавим в секцията Q&A с отговор.</p>
 
-      <label for="email">Имейл:</label><br>
-      <input type="email" id="email" name="_replyto" required><br><br>
+    <form id="qaForm" method="POST" action="https://script.google.com/macros/s/AKfycbyXXXXXXX/exec">
+      <label for="name">Вашето име:</label><br>
+      <input type="text" id="name" name="име" required><br><br>
 
-      <label for="question">Въпрос:</label><br>
-      <textarea id="question" name="question" rows="4" required></textarea><br><br>
+      <label for="email">Вашият имейл:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
 
-      <button type="submit">Изпрати</button>
+      <label for="question">Вашият въпрос:</label><br>
+      <textarea id="question" name="въпрос" rows="4" required></textarea><br><br>
+
+      <button type="submit" class="cta">📩 Изпрати въпрос</button>
     </form>
+
+    <p id="statusMsg" style="margin-top:10px;color:green;display:none;">
+      ✅ Въпросът е изпратен успешно!
+    </p>
   </section>
+
+  <script>
+    const form = document.getElementById('qaForm');
+    const status = document.getElementById('statusMsg');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+      }).then(() => {
+        status.style.display = 'block';
+        form.reset();
+      }).catch(() => {
+        status.style.display = 'block';
+        status.style.color = 'red';
+        status.innerText = '⚠️ Възникна грешка, опитайте пак.';
+      });
+    });
+  </script>
 </main>
