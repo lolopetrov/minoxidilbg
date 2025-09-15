@@ -53,5 +53,4 @@ exclude:
   - node_modules
   - vendor
   - minoxidil-5/test.html
-  - minoxidil-5/checkout.html
-  - minoxidil-2/checkout.html
+
