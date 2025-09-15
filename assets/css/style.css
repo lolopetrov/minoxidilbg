@@ -24,3 +24,23 @@ nav a.qa-link:hover {
   color: #fff;
   text-decoration: none;
 }
+
+/* === Q&A footer link (pill style) === */
+footer a.qa-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;    /* pill redondeado */
+  background: #e5e7eb;     /* gris suave (puedes cambiar por var(--accent-2) si quieres más vivo) */
+  color: #374151;          /* gris oscuro, legible */
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+footer a.qa-pill:hover {
+  background: var(--accent-2);
+  color: #fff;
+}
+
