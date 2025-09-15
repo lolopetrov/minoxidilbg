@@ -1,5 +1,5 @@
 title: "Minoxidilbg.com"
-email: "minoxidilbg @ gmail.com"
+email: "minoxidilbg@gmail.com"
 description: "Миноксидил продукт против косопад, разтвор 2% и 5% за мъже и жени. Всичко за третиране на косопад, алопеция и стимулиране на растежа на нова коса."
 author: "Тел. 0878 914 807"
 lang: "bg"
@@ -33,6 +33,12 @@ seo:
   facebook:
     app_id: ""
 
+social:
+  name: "MinoxidilBG"
+  links:
+    - https://www.facebook.com/minoxidilbg
+    - https://twitter.com/minoxidilbg
+
 # Build settings
 theme: minima
 markdown: kramdown
@@ -46,4 +52,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
-  
+  - minoxidil-5/test.html
+  - minoxidil-5/checkout.html
+  - minoxidil-2/checkout.html
