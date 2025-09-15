@@ -49,21 +49,29 @@ nav_exclude: true
   </section>
 
   <script>
-    const form = document.getElementById('qaForm');
-    const status = document.getElementById('statusMsg');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fetch(form.action, {
-        method: "POST",
+  const form = document.getElementById('qaForm');
+  const status = document.getElementById('statusMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.style.display = 'none';
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',              // 👈 evita CORS/preflight
         body: new FormData(form)
-      }).then(() => {
-        status.style.display = 'block';
-        form.reset();
-      }).catch(() => {
-        status.style.display = 'block';
-        status.style.color = 'red';
-        status.innerText = '⚠️ Възникна грешка, опитайте пак.';
       });
-    });
-  </script>
+      status.style.display = 'block';
+      status.style.color = 'green';
+      status.textContent = '✅ Въпросът е изпратен успешно!';
+      form.reset();
+    } catch (err) {
+      status.style.display = 'block';
+      status.style.color = 'red';
+      status.textContent = '⚠️ Възникна грешка, опитайте пак.';
+    }
+  });
+</script>
+
 </main>
