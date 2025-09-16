@@ -44,3 +44,41 @@ footer a.qa-pill:hover {
   color: #fff;
 }
 
+/* === Estilo global para checkboxes === */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4b5563; /* gris neutro */
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  background: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--accent, #1f8a5f); /* usa tu color principal */
+  border-color: var(--accent, #1f8a5f);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+}
+
+label {
+  cursor: pointer;
+  user-select: none;
+}
+
+
