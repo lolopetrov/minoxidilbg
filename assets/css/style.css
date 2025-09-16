@@ -44,7 +44,16 @@ footer a.qa-pill:hover {
   color: #fff;
 }
 
-/* === Estilo global para checkboxes === */
+/* Contenedor de checkbox */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+
+/* Checkbox global */
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -52,18 +61,16 @@ input[type="checkbox"] {
 
   width: 18px;
   height: 18px;
-  border: 2px solid #4b5563; /* gris neutro */
+  border: 2px solid #4b5563;
   border-radius: 4px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  vertical-align: middle;
   background: #fff;
+  cursor: pointer;
+  position: relative;
   transition: all 0.2s ease-in-out;
 }
 
 input[type="checkbox"]:checked {
-  background-color: var(--accent, #1f8a5f); /* usa tu color principal */
+  background-color: var(--accent, #1f8a5f);
   border-color: var(--accent, #1f8a5f);
 }
 
@@ -76,9 +83,15 @@ input[type="checkbox"]:checked::after {
   left: 2px;
 }
 
-label {
-  cursor: pointer;
-  user-select: none;
+/* Inputs de texto */
+.form-group {
+  margin: 12px 0;
 }
 
-
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
