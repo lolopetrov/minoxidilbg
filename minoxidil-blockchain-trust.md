@@ -4,7 +4,6 @@ title: "Миноксидил Blockchain Trust"
 permalink: /minoxidil-blockchain-trust/
 ---
 
-<h1>Миноксидил Blockchain Trust</h1>
 
 <p>✅ <strong>Всеки клиент получава безплатен NFT сертификат</strong> за оригинален продукт. 
 Сертификатът може да бъде проверен публично в блокчейн мрежата <strong>Polygon</strong>.</p>
