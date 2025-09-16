@@ -4,7 +4,7 @@ title: "Ръководство за Metamask"
 permalink: /rkovodstvo-za-metamask/
 ---
 
-# Ръководство за Metamask
+#
 
 Следвайте тези лесни стъпки, за да получите своя NFT сертификат за оригинален продукт.
 
@@ -13,7 +13,7 @@ permalink: /rkovodstvo-za-metamask/
 ## 1️⃣ Инсталиране на Metamask
 Metamask е безплатен дигитален портфейл, който може да се инсталира като браузър разширение или мобилно приложение.
 
-![Инсталиране на Metamask](/assets/images/metamask-guide/metamask-install.png)
+![Инсталиране на Metamask](<img src="/assets/images/metamask-guide/metamask-install.png" alt="Инсталиране на Metamask" width="520">)
 
 - Посетете [официалния сайт на Metamask](https://metamask.io/)
 - Натиснете **Download** и изберете вашия браузър (Chrome, Brave, Firefox) или мобилно приложение
