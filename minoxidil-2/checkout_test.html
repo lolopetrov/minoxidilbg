@@ -55,15 +55,15 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   </div>
    
 // Campos NFT
-var nftCert = "Не";  // valor por defecto
-if (e.parameter.nft_cert && e.parameter.nft_cert === "yes") {
+ var nftCert = "Не";  // valor por defecto
+ if (e.parameter.nft_cert && e.parameter.nft_cert === "yes") {
   nftCert = "Да";
-}
+ }
 
-var wallet = "";
-if (e.parameter.wallet) {
-  wallet = e.parameter.wallet.trim();
-}
+ var wallet = "";
+ if (e.parameter.wallet) {
+   wallet = e.parameter.wallet.trim();
+ }
 
 
   <div class="form-group">
