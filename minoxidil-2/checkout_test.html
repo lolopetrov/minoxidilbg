@@ -30,41 +30,52 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
   <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
- <form id="orderForm" novalidate>
-  <!-- 👇 Hidden que fija el producto de esta página -->
+ <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbyXXXXXX/exec" novalidate>
+  <!-- Hidden product -->
   <input type="hidden" name="producto" value="Миноксидил 2%">
 
-  <label>Име и фамилия:</label>
-  <input type="text" name="име" required>
-
-  <label>Телефон:</label>
-  <input type="tel" name="телефон" required>
-
-  <label>Адрес за доставка:</label>
-  <textarea name="адрес" rows="3" required></textarea>
-
-  <div style="margin-top:10px">
-    <label for="customerEmail">Вашият имейл:</label>
-    <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required>
-    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
+  <div class="form-group">
+    <label for="name">Име и фамилия:</label>
+    <input type="text" id="name" name="име" required>
   </div>
 
-   <div style="margin:12px 0; display:flex; align-items:center; gap:8px;">
-  <input type="checkbox" id="nft_cert" name="nft_cert" value="yes" style="width:18px; height:18px;">
-  <label for="nft_cert" style="margin:0; cursor:pointer;">
-    ✅ Желая NFT сертификат за покупката си
-  </label>
-</div>
+  <div class="form-group">
+    <label for="phone">Телефон:</label>
+    <input type="tel" id="phone" name="телефон" required>
+  </div>
 
-<label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label><br>
-<input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." style="width:100%; margin-top:4px;">
+  <div class="form-group">
+    <label for="address">Адрес за доставка:</label>
+    <textarea id="address" name="адрес" rows="3" required></textarea>
+  </div>
 
+  <div class="form-group">
+    <label for="email">Вашият имейл:</label>
+    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+  </div>
 
-  <label>Количество:</label>
-  <input type="number" name="броики" min="1" value="1" required>
+  <!-- NFT checkbox alineado -->
+  <div class="form-check">
+    <label for="nft_cert">
+      <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+      Желая NFT сертификат за покупката си
+    </label>
+  </div>
 
-  <button type="submit">🛒 Изпрати поръчка</button>
+  <div class="form-group">
+    <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+    <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
+  </div>
+
+  <div class="form-group">
+    <label for="qty">Количество:</label>
+    <input type="number" id="qty" name="броики" value="1" min="1" required>
+  </div>
+
+  <button type="submit" class="cta">🛒 Изпрати поръчка</button>
 </form>
+
+<p id="statusMsg" style="margin-top:10px;display:none;"></p>
 
 
   <p id="status">✅ Поръчката е изпратена успешно!</p>
@@ -72,49 +83,23 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
 
 <script>
   const form = document.getElementById('orderForm');
-  const statusEl = document.getElementById('status');
-  const emailEl = document.getElementById('customerEmail');
+  const status = document.getElementById('statusMsg');
 
-  // Tu Web App URL (deja la tuya)
-  const webAppUrl = "https://script.google.com/macros/s/AKfycbxAImRfONACxawH-oxSUtIRRWXEeQBcteGphMsK7MnVkrnQPosI7ZjGXu6_cFK7L0_C8g/exec"
-  // Igual que antes
-  function sendOrder(data) {
-    const body = new URLSearchParams(data); // x-www-form-urlencoded
-    fetch(webAppUrl, { method: 'POST', body })
-      .then(r => r.text())
-      .then(() => {
-        statusEl.style.color = 'green';
-        statusEl.textContent = '✅ Поръчката е изпратена успешно!';
-        statusEl.style.display = 'block';
-        form.reset();
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      })
-      .catch(() => {
-        statusEl.style.color = 'red';
-        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
-        statusEl.style.display = 'block';
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      });
-  }
-
-  // SOLO cambia este submit para leer el hidden "producto"
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-
-    const emailVal = (emailEl?.value || '').trim();
-    const product  = (form.producto?.value || "Миноксидил 2%"); // ← lee el hidden
-
-    const data = {
-      име: form.име.value,
-      телефон: form.телефон.value,
-      адрес: form.адрес.value,
-      броики: form.броики.value,
-      customerEmail: emailVal, // se envía con ambas claves
-      email: emailVal,         // por compatibilidad
-      producto: product        // ← garantizado "Миноксидил 2%"
-    };
-
-    sendOrder(data);
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    }).then(() => {
+      status.style.display = 'block';
+      status.style.color = 'green';
+      status.innerText = '✅ Поръчката е изпратена успешно!';
+      form.reset();
+    }).catch(() => {
+      status.style.display = 'block';
+      status.style.color = 'red';
+      status.innerText = '⚠️ Възникна грешка, опитайте пак.';
+    });
   });
 </script>
 
