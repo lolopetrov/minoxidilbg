@@ -53,45 +53,14 @@ footer a.qa-pill:hover {
   font-size: 0.95rem;
 }
 
-/* Checkbox global */
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+<div class="form-check">
+  <label for="nft_cert">
+    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+    Желая NFT сертификат за покупката си
+  </label>
+</div>
 
-  width: 18px;
-  height: 18px;
-  border: 2px solid #4b5563;
-  border-radius: 4px;
-  background: #fff;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s ease-in-out;
-}
-
-input[type="checkbox"]:checked {
-  background-color: var(--accent, #1f8a5f);
-  border-color: var(--accent, #1f8a5f);
-}
-
-input[type="checkbox"]:checked::after {
-  content: "✔";
-  color: #fff;
-  font-size: 14px;
-  position: absolute;
-  top: -2px;
-  left: 2px;
-}
-
-/* Inputs de texto */
-.form-group {
-  margin: 12px 0;
-}
-
-.form-group input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.95rem;
-}
+<div class="form-group">
+  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
+</div>
