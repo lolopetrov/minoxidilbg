@@ -44,24 +44,3 @@ footer a.qa-pill:hover {
   color: #fff;
 }
 
-/* Contenedor de checkbox */
-.form-check {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 12px 0;
-  font-size: 0.95rem;
-}
-
-.form-check label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.form-check input[type="checkbox"] {
-  margin: 0;
-  width: 18px;
-  height: 18px;
-}
