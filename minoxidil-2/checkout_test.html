@@ -1,106 +1,100 @@
-<main class="container">
-  <h1>Форма за поръчка — Миноксидил</h1>
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Поръчка Миноксидил 2%</title>
 
-  <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbyXXXXXXX/exec" novalidate>
-    <!-- Hidden product -->
-    <input type="hidden" name="producto" value="Миноксидил">
-
-    <div class="form-group">
-      <label for="name">Име и фамилия:</label>
-      <input type="text" id="name" name="име" required>
-    </div>
-
-    <div class="form-group">
-      <label for="phone">Телефон:</label>
-      <input type="text" id="phone" name="телефон" required>
-    </div>
-
-    <div class="form-group">
-      <label for="address">Адрес за доставка:</label>
-      <textarea id="address" name="адрес" required></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Вашият имейл:</label>
-      <input type="email" id="email" name="email" placeholder="name@example.com" required>
-    </div>
-
-    <!-- Casilla NFT -->
-    <div class="form-group">
-      <label>
-        <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
-        Желая NFT сертификат за покупката си
-      </label>
-    </div>
-
-    <!-- Wallet -->
-    <div class="form-group">
-      <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
-      <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." disabled>
-    </div>
-
-    <div class="form-group">
-      <label for="qty">Количество:</label>
-      <input type="number" id="qty" name="броики" value="1" min="1" required>
-    </div>
-
-    <button type="submit" class="cta">🛒 Изпрати поръчка</button>
-  </form>
-
-  <p id="statusMsg" style="margin-top:10px;color:green;display:none;">
-    ✅ Поръчката е изпратена успешно!
-  </p>
-</main>
-
-<!-- CSS inline (puedes moverlo a /assets/css/style.css si quieres) -->
-<style>
-  .form-group {
-    margin: 12px 0;
-  }
-  .form-group label {
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .form-group input[type="checkbox"] {
-    transform: scale(1.2);
-  }
-</style>
-
-<!-- JS para activar Wallet sólo si hay NFT -->
-<script>
-  const nftCheckbox = document.getElementById('nft_cert');
-  const walletInput = document.getElementById('wallet');
-  const form = document.getElementById('orderForm');
-  const status = document.getElementById('statusMsg');
-
-  nftCheckbox.addEventListener('change', () => {
-    if (nftCheckbox.checked) {
-      walletInput.disabled = false;
-      walletInput.required = true;
-    } else {
-      walletInput.disabled = true;
-      walletInput.required = false;
-      walletInput.value = "";
+  <!-- CSS inline para checkbox -->
+  <style>
+    .form-group {
+      margin: 12px 0;
     }
-  });
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form)
-    }).then(() => {
-      status.style.display = 'block';
-      status.style.color = 'green';
-      status.innerText = '✅ Поръчката е изпратена успешно!';
-      form.reset();
-      walletInput.disabled = true; // reset estado Wallet
-    }).catch(() => {
-      status.style.display = 'block';
-      status.style.color = 'red';
-      status.innerText = '⚠️ Възникна грешка, опитайте пак.';
+    .form-group label {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;  /* separa el checkbox del texto */
+    }
+
+    .form-group input[type="checkbox"] {
+      transform: scale(1.2); /* checkbox un poquito más grande */
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Форма за поръчка — Миноксидил 2%</h1>
+
+    <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbyXXXXXXX/exec" novalidate>
+      <!-- Hidden product -->
+      <input type="hidden" name="producto" value="Миноксидил 2%">
+
+      <div class="form-group">
+        <label for="name">Име и фамилия:</label>
+        <input type="text" id="name" name="име" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="телефон" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Адрес за доставка:</label>
+        <textarea id="address" name="адрес" rows="2" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Вашият имейл:</label>
+        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+          Желая NFT сертификат за покупката си
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+        <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
+      </div>
+
+      <div class="form-group">
+        <label for="qty">Количество:</label>
+        <input type="number" id="qty" name="броики" value="1" min="1" required>
+      </div>
+
+      <button type="submit" class="cta">🛒 Изпрати поръчка</button>
+    </form>
+
+    <p id="statusMsg" style="margin-top:10px;color:green;display:none;">
+      ✅ Поръчката е изпратена успешно!
+    </p>
+  </main>
+
+  <script>
+    const form = document.getElementById('orderForm');
+    const status = document.getElementById('statusMsg');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+      }).then(() => {
+        status.style.display = 'block';
+        status.style.color = 'green';
+        status.innerText = '✅ Поръчката е изпратена успешно!';
+        form.reset();
+      }).catch(() => {
+        status.style.display = 'block';
+        status.style.color = 'red';
+        status.innerText = '⚠️ Възникна грешка, опитайте пак.';
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
