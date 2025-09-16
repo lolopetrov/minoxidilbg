@@ -54,17 +54,13 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     <input type="email" id="email" name="email" placeholder="name@example.com" required>
   </div>
    
-// Campos NFT
- var nftCert = "Не";  // valor por defecto
- if (e.parameter.nft_cert && e.parameter.nft_cert === "yes") {
-  nftCert = "Да";
- }
-
- var wallet = "";
- if (e.parameter.wallet) {
-   wallet = e.parameter.wallet.trim();
- }
-
+<!-- NFT -->
+<div class="form-check">
+  <label for="nft_cert">
+    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+    Желая NFT сертификат за покупката си
+  </label>
+</div>
 
   <div class="form-group">
     <label for="qty">Количество:</label>
