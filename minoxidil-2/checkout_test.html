@@ -49,14 +49,16 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
   </div>
 
-  <div style="margin:12px 0; display:flex; align-items:center; gap:8px;">
+  <div class="form-check">
   <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
   <label for="nft_cert">Желая NFT сертификат за покупката си</label>
 </div>
 
+<div class="form-group">
+  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
+</div>
 
-<label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label><br>
-<input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." style="width:100%; margin-top:4px;">
 
    
    <label>Количество:</label>  
