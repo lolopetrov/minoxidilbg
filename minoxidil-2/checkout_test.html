@@ -1,90 +1,90 @@
----
-layout: none
-sitemap: false
----
+<main class="container">
+  <h1>Форма за поръчка — Миноксидил</h1>
 
-<!doctype html>
-<html lang="bg">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Поръчай Миноксидил 2%</title>
+  <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbyXXXXXXX/exec" novalidate>
+    <!-- Hidden product -->
+    <input type="hidden" name="producto" value="Миноксидил">
+
+    <div class="form-group">
+      <label for="name">Име и фамилия:</label>
+      <input type="text" id="name" name="име" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Телефон:</label>
+      <input type="text" id="phone" name="телефон" required>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Адрес за доставка:</label>
+      <textarea id="address" name="адрес" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Вашият имейл:</label>
+      <input type="email" id="email" name="email" placeholder="name@example.com" required>
+    </div>
+
+    <!-- Casilla NFT -->
+    <div class="form-group">
+      <label>
+        <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+        Желая NFT сертификат за покупката си
+      </label>
+    </div>
+
+    <!-- Wallet -->
+    <div class="form-group">
+      <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+      <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="qty">Количество:</label>
+      <input type="number" id="qty" name="броики" value="1" min="1" required>
+    </div>
+
+    <button type="submit" class="cta">🛒 Изпрати поръчка</button>
+  </form>
+
+  <p id="statusMsg" style="margin-top:10px;color:green;display:none;">
+    ✅ Поръчката е изпратена успешно!
+  </p>
+</main>
+
+<!-- CSS inline (puedes moverlo a /assets/css/style.css si quieres) -->
 <style>
-:root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
-body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
-.container{max-width:500px;margin:0 auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-h1{text-align:center;margin-bottom:15px}
-.product-img{width:100%;border-radius:8px;margin-bottom:15px}
-label{display:block;margin:10px 0 5px;font-weight:600}
-input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
-button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
-#status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
-
-/* Si NO quieres barra sticky en móvil, mantenla oculta: */
-.sticky-buy{display:none;}
+  .form-group {
+    margin: 12px 0;
+  }
+  .form-group label {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-group input[type="checkbox"] {
+    transform: scale(1.2);
+  }
 </style>
-</head>
-<body>
-<div class="container">
-  <h1>Поръчай Миноксидил 2%</h1>
-  <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
-  <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
- <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbzDRhB6ehtoI26YnevFTP-jxVGR1k3VchOi3xauQ8DxNgLYtKS5N8364n9m6TjU5mK8-Q/exec">
-  <!-- Hidden product -->
-  <input type="hidden" name="producto" value="Миноксидил 2%">
-
-  <div class="form-group">
-    <label for="name">Име и фамилия:</label>
-    <input type="text" id="name" name="име" required>
-  </div>
-
-  <div class="form-group">
-    <label for="phone">Телефон:</label>
-    <input type="tel" id="phone" name="телефон" required>
-  </div>
-
-  <div class="form-group">
-    <label for="address">Адрес за доставка:</label>
-    <textarea id="address" name="адрес" rows="3" required></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="email">Вашият имейл:</label>
-    <input type="email" id="email" name="email" placeholder="name@example.com" required>
-  </div>
-   
-<!-- NFT -->
-<div class="form-check">
-  <label for="nft_cert">
-    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
-    Желая NFT сертификат за покупката си
-  </label>
-</div>
-
-   <!-- WALLET -->
-<div class="form-group">
-  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
-  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
-</div>
-
-  <div class="form-group">
-    <label for="qty">Количество:</label>
-    <input type="number" id="qty" name="броики" value="1" min="1" required>
-  </div>
-
-  <button type="submit" class="cta">🛒 Изпрати поръчка</button>
-</form>
-
-<p id="statusMsg" style="margin-top:10px;display:none;"></p>
-
-
-  <p id="status">✅ Поръчката е изпратена успешно!</p>
-</div>
-
+<!-- JS para activar Wallet sólo si hay NFT -->
 <script>
+  const nftCheckbox = document.getElementById('nft_cert');
+  const walletInput = document.getElementById('wallet');
   const form = document.getElementById('orderForm');
   const status = document.getElementById('statusMsg');
+
+  nftCheckbox.addEventListener('change', () => {
+    if (nftCheckbox.checked) {
+      walletInput.disabled = false;
+      walletInput.required = true;
+    } else {
+      walletInput.disabled = true;
+      walletInput.required = false;
+      walletInput.value = "";
+    }
+  });
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -96,6 +96,7 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
       status.style.color = 'green';
       status.innerText = '✅ Поръчката е изпратена успешно!';
       form.reset();
+      walletInput.disabled = true; // reset estado Wallet
     }).catch(() => {
       status.style.display = 'block';
       status.style.color = 'red';
@@ -103,7 +104,3 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     });
   });
 </script>
-
-
-</body>
-</html>
