@@ -1,0 +1,122 @@
+---
+layout: none
+sitemap: false
+---
+
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поръчай Миноксидил 2%</title>
+<style>
+:root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
+.container{max-width:500px;margin:0 auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
+h1{text-align:center;margin-bottom:15px}
+.product-img{width:100%;border-radius:8px;margin-bottom:15px}
+label{display:block;margin:10px 0 5px;font-weight:600}
+input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
+button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
+#status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
+
+/* Si NO quieres barra sticky en móvil, mantenla oculta: */
+.sticky-buy{display:none;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Поръчай Миноксидил 2%</h1>
+  <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
+  <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
+
+ <form id="orderForm" novalidate>
+  <!-- 👇 Hidden que fija el producto de esta página -->
+  <input type="hidden" name="producto" value="Миноксидил 2%">
+
+  <label>Име и фамилия:</label>
+  <input type="text" name="име" required>
+
+  <label>Телефон:</label>
+  <input type="tel" name="телефон" required>
+
+  <label>Адрес за доставка:</label>
+  <textarea name="адрес" rows="3" required></textarea>
+
+  <div style="margin-top:10px">
+    <label for="customerEmail">Вашият имейл:</label>
+    <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required>
+    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
+  </div>
+
+  <label>Количество:</label>
+
+   <label>
+  <input type="checkbox" name="nft_cert" value="yes">
+  ✅ Желая NFT сертификат за покупката си
+</label>
+<br><br>
+<label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label><br>
+<input type="text" name="wallet" placeholder="0x... или 3HhD..." style="width:100%">
+
+  <input type="number" name="броики" min="1" value="1" required>
+
+  <button type="submit">🛒 Изпрати поръчка</button>
+</form>
+
+
+  <p id="status">✅ Поръчката е изпратена успешно!</p>
+</div>
+
+<script>
+  const form = document.getElementById('orderForm');
+  const statusEl = document.getElementById('status');
+  const emailEl = document.getElementById('customerEmail');
+
+  // Tu Web App URL (deja la tuya)
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbxAImRfONACxawH-oxSUtIRRWXEeQBcteGphMsK7MnVkrnQPosI7ZjGXu6_cFK7L0_C8g/exec";
+
+  // Igual que antes
+  function sendOrder(data) {
+    const body = new URLSearchParams(data); // x-www-form-urlencoded
+    fetch(webAppUrl, { method: 'POST', body })
+      .then(r => r.text())
+      .then(() => {
+        statusEl.style.color = 'green';
+        statusEl.textContent = '✅ Поръчката е изпратена успешно!';
+        statusEl.style.display = 'block';
+        form.reset();
+        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      })
+      .catch(() => {
+        statusEl.style.color = 'red';
+        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
+        statusEl.style.display = 'block';
+        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+  }
+
+  // SOLO cambia este submit para leer el hidden "producto"
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailVal = (emailEl?.value || '').trim();
+    const product  = (form.producto?.value || "Миноксидил 2%"); // ← lee el hidden
+
+    const data = {
+      име: form.име.value,
+      телефон: form.телефон.value,
+      адрес: form.адрес.value,
+      броики: form.броики.value,
+      customerEmail: emailVal, // se envía con ambas claves
+      email: emailVal,         // por compatibilidad
+      producto: product        // ← garantizado "Миноксидил 2%"
+    };
+
+    sendOrder(data);
+  });
+</script>
+
+
+</body>
+</html>
