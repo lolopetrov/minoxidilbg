@@ -53,14 +53,16 @@ footer a.qa-pill:hover {
   font-size: 0.95rem;
 }
 
-<div class="form-check">
-  <label for="nft_cert">
-    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
-    Желая NFT сертификат за покупката си
-  </label>
-</div>
+.form-check label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
 
-<div class="form-group">
-  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
-  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD...">
-</div>
+.form-check input[type="checkbox"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+}
+
