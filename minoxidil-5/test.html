@@ -8,7 +8,7 @@ sitemap: false
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Поръчай Миноксидил 5%</title>
+<title>Поръчай Миноксидил 2%</title>
 <style>
 :root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
 body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
@@ -20,7 +20,7 @@ input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;f
 button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
 #status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
 
-/* NFT */
+/* NFT: alineación del checkbox con el texto */
 .form-check{display:flex;align-items:center;gap:8px;margin:12px 0}
 .form-check input[type="checkbox"]{width:18px;height:18px}
 .form-check .checkbox-label{margin:0;font-weight:600}
@@ -28,13 +28,13 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
 </head>
 <body>
 <div class="container">
-  <h1>Поръчай Миноксидил 5%</h1>
-  <img src="https://minoxidilbg.com/assets/images/minoxidil-5-procenta.png" alt="Миноксидил 5%" class="product-img">
+  <h1>Поръчай Миноксидил 2%</h1>
+  <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
   <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
  <form id="orderForm" novalidate>
   <!-- Producto fijo de esta página -->
-  <input type="hidden" name="producto" value="Миноксидил 5%">
+  <input type="hidden" name="producto" value="Миноксидил 2%">
 
   <label>Име и фамилия:</label>
   <input type="text" name="име" required>
@@ -57,7 +57,7 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     <label for="nft_cert" class="checkbox-label">Желая NFT сертификат за покупката си</label>
   </div>
 
-  <!-- Wallet -->
+  <!-- Wallet (solo si NFT) -->
   <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
   <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." disabled>
 
@@ -78,8 +78,9 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   const walletEl = document.getElementById('wallet');
 
   // Tu Web App URL
-  const webAppUrl = "https://script.google.com/macros/s/AKfycbxAImRfONACxawH-oxSUtIRRWXEeQBcteGphMsK7MnVkrnQPosI7ZjGXu6_cFK7L0_C8g/exec";
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbzDRhB6ehtoI26YnevFTP-jxVGR1k3VchOi3xauQ8DxNgLYtKS5N8364n9m6TjU5mK8-Q/exec";
 
+  // Activar/desactivar Wallet según NFT
   nftEl.addEventListener('change', () => {
     if (nftEl.checked) {
       walletEl.disabled = false;
@@ -90,7 +91,7 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
   });
 
   function sendOrder(data) {
-    const body = new URLSearchParams(data);
+    const body = new URLSearchParams(data); // x-www-form-urlencoded
     fetch(webAppUrl, { method: 'POST', body })
       .then(r => r.text())
       .then(() => {
@@ -113,10 +114,11 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     e.preventDefault();
 
     const emailVal = (emailEl?.value || '').trim();
-    const product  = (form.producto?.value || "Миноксидил 5%");
+    const product  = (form.producto?.value || "Миноксидил 2%");
     const wantsNft = nftEl.checked;
     const walletVal = (walletEl.value || '').trim();
 
+    // Validación manual (usas novalidate)
     if (wantsNft && !walletVal) {
       statusEl.style.color = 'red';
       statusEl.textContent = '⚠️ Моля, въведете адрес на портфейла за NFT.';
@@ -131,10 +133,11 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
       адрес: form.адрес.value,
       броики: form.броики.value,
       customerEmail: emailVal,
-      email: emailVal,
+      email: emailVal,   // compatibilidad
       producto: product
     };
 
+    // Solo añadimos estos campos si corresponde
     if (wantsNft) {
       data.nft_cert = "yes";
       if (walletVal) data.wallet = walletVal;
