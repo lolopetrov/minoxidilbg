@@ -7,7 +7,8 @@ timezone: Europe/Sofia
 url: "https://minoxidilbg.com"
 baseurl: ""
 
-permalink: /:year/:month/:day/:title:output_ext
+permalink: "/:year/:month/:day/:title:output_ext"
+
 
 keywords:
   - миноксидил
@@ -53,5 +54,5 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
-  - minoxidil-5/test.html
+
 
