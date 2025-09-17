@@ -39,4 +39,4 @@ exclude:
   - node_modules
   - vendor
   - README.md
-  - minoxidil-5/test.html # тестов файл – изключен
+ 
