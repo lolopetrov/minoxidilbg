@@ -28,7 +28,7 @@ permalink: /minoxidil-blockchain-trust/
 </ul>
 
 <div style="margin-top:20px; text-align:center;">
-  <a href="/rkovodstvo-za-metamask/" 
+  <a href="/rakovodstvo-za-metamask/" 
      style="background-color:#2b6cb0; color:#fff; padding:12px 24px; border-radius:8px; 
             text-decoration:none; font-weight:bold; display:inline-block;">
     👉 Научи повече за Metamask
