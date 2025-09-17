@@ -39,6 +39,34 @@ footer a.qa-pill {
   transition: all 0.2s ease-in-out;
 }
 
+/* Мобилно поведение по подразбиране */
+.site-nav .trigger { display: none; }                  /* скрито по подразбиране */
+.nav-trigger:checked ~ .trigger { display: block; }    /* показва се при клик на хамбургера */
+.site-nav .page-link { 
+  display: block;                                      /* по един на ред */
+  padding: 8px 0; 
+  white-space: normal; 
+  word-break: break-word;                              /* дългите текстове се пренасят */
+}
+
+/* Десктоп (само над 900px): редица с разстояние */
+@media (min-width: 900px){
+  .nav-trigger, .menu-icon { display: none; }          /* скриваме хамбургера */
+  .site-nav .trigger { 
+    display: flex; 
+    gap: 16px; 
+    align-items: center; 
+    flex-wrap: wrap;
+  }
+  .site-nav .page-link { 
+    display: inline-block; 
+    padding: 0; 
+    white-space: nowrap; 
+    word-break: normal;
+  }
+}
+
+
 footer a.qa-pill:hover {
   background: var(--accent-2);
   color: #fff;
