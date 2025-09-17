@@ -3,6 +3,9 @@
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
 
     <nav class="site-nav" role="navigation" aria-label="Главно меню">
+
+      {% assign current = page.url | replace: site.baseurl, '' %}
+
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger">
         <span class="menu-icon">
@@ -13,17 +16,12 @@
       </label>
 
       <!-- SIN estilos inline aquí -->
-      <div class="trigger">
-        <a class="page-link" href="{{ '/' | relative_url }}">Миноксидил 2% или 5%</a>
-        <a class="page-link" href="{{ '/minoxidil/' | relative_url }}">Миноксидил</a>
-        <a class="page-link" href="{{ '/minoxidil-nft/' | relative_url }}">NFT сертификат</a>
-        
-        <!-- (Quita este del menú) -->
-<!-- <a class="page-link" href="{{ '/minoxidil-blockchain-trust/' | relative_url }}">Blockchain Trust</a> -->
-        
-        <a class="page-link" href="{{ '/rakovodstvo-za-metamask/' | relative_url }}">Ръководство за MetaMask</a>
-        <a class="page-link" href="{{ '/qa/' | relative_url }}">Въпроси и Отговори</a>
-      </div>
+      <a class="page-link{% if current == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">Миноксидил 2% или 5%</a>
+<a class="page-link{% if current == '/minoxidil/' %} active{% endif %}" href="{{ '/minoxidil/' | relative_url }}">Миноксидил</a>
+<a class="page-link{% if current == '/minoxidil-nft/' %} active{% endif %}" href="{{ '/minoxidil-nft/' | relative_url }}">NFT сертификат</a>
+<a class="page-link{% if current == '/rakovodstvo-za-metamask/' %} active{% endif %}" href="{{ '/rakovodstvo-za-metamask/' | relative_url }}">Ръководство за MetaMask</a>
+<a class="page-link{% if current == '/qa/' %} active{% endif %}" href="{{ '/qa/' | relative_url }}">Въпроси и Отговори</a>
+
     </nav>
   </div>
 </header>
