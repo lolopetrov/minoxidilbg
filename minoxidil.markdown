@@ -2,7 +2,6 @@
 layout: home
 title: Миноксидил
 permalink: /minoxidil/
-nav_order: 20
 ---
 
 ### Полезна информация
