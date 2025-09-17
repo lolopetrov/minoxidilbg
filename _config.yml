@@ -47,9 +47,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap   # автоматично генериране на sitemap.xml
 
-  header_pages:
-  
-  - minoxidil-blockchain-trust/index.md
 
 exclude:
   - Gemfile
