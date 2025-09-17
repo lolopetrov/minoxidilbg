@@ -30,17 +30,26 @@
       </label>
 
       <div class="trigger">
-        {% for path in site.pages %}
-          {% if path.title and path.nav_exclude != true %}
-            <a class="page-link" href="{{ path.url | relative_url }}">
-              {{ path.title | escape }}
-            </a>
-          {% endif %}
-        {% endfor %}
+  {%- assign ordered_pages = site.pages
+      | where_exp: "p", "p.title and p.nav_exclude != true and p.nav_order"
+      | sort: "nav_order" -%}
+  {%- assign unordered_pages = site.pages
+      | where_exp: "p", "p.title and p.nav_exclude != true and p.nav_order == nil"
+      | sort: "title" -%}
 
-        <!-- Enlace manual fijo a Q&A -->
-        <a class="page-link qa-link" href="/qa/">Въпроси и Отговори</a>
-      </div>
-    </nav>
-  </div>
+  {%- for path in ordered_pages -%}
+    <a class="page-link" href="{{ path.url | relative_url }}">
+      {{ path.nav_label | default: path.title | escape }}
+    </a>
+  {%- endfor -%}
+  {%- for path in unordered_pages -%}
+    <a class="page-link" href="{{ path.url | relative_url }}">
+      {{ path.nav_label | default: path.title | escape }}
+    </a>
+  {%- endfor -%}
+
+  <!-- по избор: оставяш или махаш този фиксиран линк -->
+  <a class="page-link qa-link" href="/qa/">Въпроси и Отговори</a>
+</div>
+
 </header>
