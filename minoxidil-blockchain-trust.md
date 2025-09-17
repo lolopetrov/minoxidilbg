@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Minoxidil Blockchain Trust"
+title: "Миноксидил Blockchain Trust"
 permalink: /minoxidil-blockchain-trust/
 ---
 
