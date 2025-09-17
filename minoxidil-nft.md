@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Миноксидил Blockchain Trust
-permalink: /minoxidil-blockchain-trust/
+permalink: /minoxidil-nft/
 description: NFT сертификат за оригиналност — публично проверим в Polygon. Без посредници и „гарантори“.
 ---
 
