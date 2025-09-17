@@ -7,9 +7,17 @@ timezone: Europe/Sofia
 url: "https://minoxidilbg.com"
 baseurl: ""
 
-permalink: "/:year/:month/:day/:title:output_ext"
+# GitHub Pages (Jekyll 3.9) – безопасно:
+permalink: pretty
 
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
+# по избор; не пречи
 keywords:
   - миноксидил
   - миноксидил 5%
@@ -25,34 +33,10 @@ keywords:
   - резултати от миноксидил
   - миноксидилbg
 
-seo:
-  type: website
-  name: "MinoxidilBG"
-  description: "Миноксидил срещу косопад за мъже и жени"
-  twitter:
-    username: "minoxidilbg"
-  facebook:
-    app_id: ""
-
-social:
-  name: "MinoxidilBG"
-  links:
-    - https://www.facebook.com/minoxidilbg
-    - https://twitter.com/minoxidilbg
-
-# Build settings
-theme: minima
-markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap   # автоматично генериране на sitemap.xml
-
-
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
-
-
+  - README.md
+  - minoxidil-5/test.html # тестов файл – изключен
