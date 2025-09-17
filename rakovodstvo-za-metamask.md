@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ръководство за Metamask"
-permalink: /rkovodstvo-za-metamask/
+permalink: /rakovodstvo-za-metamask/
 ---
 
 
