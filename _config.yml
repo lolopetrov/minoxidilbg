@@ -7,7 +7,6 @@ timezone: Europe/Sofia
 url: "https://minoxidilbg.com"
 baseurl: ""
 
-# GitHub Pages (Jekyll 3.9) – безопасно:
 permalink: pretty
 
 theme: minima
@@ -17,26 +16,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# по избор; не пречи
-keywords:
-  - миноксидил
-  - миноксидил 5%
-  - миноксидил за мъже
-  - миноксидил 2%
-  - миноксидил за жени
-  - лечение на косопад
-  - андрогенна алопеция
-  - растеж на косата
-  - косопад при мъже
-  - косопад при жени
-  - локално приложение
-  - резултати от миноксидил
-  - миноксидилbg
-
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
   - README.md
- 
