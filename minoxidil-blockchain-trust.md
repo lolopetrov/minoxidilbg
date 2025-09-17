@@ -5,6 +5,12 @@ permalink: /minoxidil-blockchain-trust/
 ---
 
 
+<p class="muted" style="margin:8px 0 16px;">
+Търсиш как точно да получиш и провериш своя NFT сертификат? 
+Виж <a href="/minoxidil-nft/">NFT сертификат</a>.
+</p>
+
+
 <p>✅ <strong>Всеки клиент получава безплатен NFT сертификат</strong> за оригинален продукт. 
 Сертификатът може да бъде проверен публично в блокчейн мрежата <strong>Polygon</strong>.</p>
 
