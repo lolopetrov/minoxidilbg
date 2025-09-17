@@ -7,7 +7,8 @@ timezone: Europe/Sofia
 url: "https://minoxidilbg.com"
 baseurl: ""
 
-permalink: pretty
+permalink: "/:year/:month/:day/:title:output_ext"  # по избор; влияе на постове, не на страници
+
 
 theme: minima
 markdown: kramdown
