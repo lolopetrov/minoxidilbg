@@ -2,8 +2,6 @@
 layout: page
 title: Миноксидил за косопад – 2% и 5% разтвор за жени и мъже
 permalink: /
-nav_order: 10
-nav_label: "Миноксидил 2%-5%"
 ---
 
 
