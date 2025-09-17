@@ -6,7 +6,7 @@ description: NFT сертификат за оригиналност — публ
 ---
 
 <p class="muted" style="margin:8px 0 16px;">
-Искаш философията „защо не вярваме на гарантори“? Виж 
+Искаш философията „защо не работим с гаранти“? Виж 
 <a href="/minoxidil-blockchain-trust/">Blockchain Trust</a>.
 </p>
 
