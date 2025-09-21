@@ -6,9 +6,6 @@
 
     <title>{{ page.title }} | {{ site.title }}</title>
 
-  
-
-
     {%- seo -%}
 
     <!-- Carga el CSS del tema -->
@@ -40,6 +37,49 @@
       <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"/>
     </noscript>
+
+    <!-- FAQ Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Къде да купя миноксидил в България?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можете да поръчате оригинален миноксидил директно от MinoxidilBG с доставка до всеки град в България. Предлагаме 2% и 5% разтвор за мъже и жени."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Каква е цената на миноксидил в България?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Цените ни са конкурентни и се виждат на страниците на продуктите. Доставяме с опция наложен платеж."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Колко време трябва да използвам миноксидил?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ефект се постига при редовна употреба поне 3–6 месеца. За задържане на резултатите се препоръчва продължителна терапия."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Миноксидил спира ли косопада завинаги?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не. Ефектът се запазва, докато продуктът се използва. При спиране на терапията косопадът може да се върне."
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
 
   <body>
