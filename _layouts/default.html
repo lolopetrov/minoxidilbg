@@ -38,7 +38,7 @@
       src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"/>
     </noscript>
 
-    <!-- FAQ Schema JSON-LD -->
+       <!-- FAQ Schema JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,6 +79,55 @@
       ]
     }
     </script>
+
+    <!-- Product Schema JSON-LD Condicional -->
+    {% if page.url == "/minoxidil-2/" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Миноксидил 2% за жени – 125 мл",
+      "image": [
+        "https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png"
+      ],
+      "description": "Миноксидил 2% е подходящ за жени с начален косопад. Оригинален продукт с клинично доказан ефект и доставка до цяла България.",
+      "sku": "MINOX-2",
+      "brand": { "@type": "Brand", "name": "MinoxidilBG" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://minoxidilbg.com/minoxidil-2/",
+        "priceCurrency": "BGN",
+        "price": "47.00",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    }
+    </script>
+    {% endif %}
+
+    {% if page.url == "/minoxidil-5/" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Миноксидил 5% за мъже – 125 мл",
+      "image": [
+        "https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif"
+      ],
+      "description": "Миноксидил 5% е силно решение за мъже с изразен косопад. Поръчайте онлайн с бърза доставка и наложен платеж в България.",
+      "sku": "MINOX-5",
+      "brand": { "@type": "Brand", "name": "MinoxidilBG" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://minoxidilbg.com/minoxidil-5/",
+        "priceCurrency": "BGN",
+        "price": "52.00",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    }
+    </script>
+    {% endif %}
 
   </head>
 
