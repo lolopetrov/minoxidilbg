@@ -1,0 +1,94 @@
+---
+layout: none
+sitemap: false
+---
+
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поръчката е приета</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 520px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1f8a5f;
+      margin-bottom: 15px;
+    }
+    .order-info {
+      text-align: left;
+      margin-top: 25px;
+      line-height: 1.6;
+    }
+    .order-info strong {
+      color: #111;
+    }
+    .highlight {
+      color: #1f8a5f;
+      font-weight: bold;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1f8a5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Вашата поръчка е приета!</h1>
+    <p id="greeting"></p>
+
+    <div class="order-info">
+      <p>📦 <strong>Продукт:</strong> <span id="product"></span></p>
+      <p>🔢 <strong>Количество:</strong> <span id="qty"></span></p>
+      <p>📞 <strong>Телефон:</strong> <span id="phone"></span></p>
+      <p>🧾 <strong>Номер поръчка:</strong> <span id="orderNumber" class="highlight"></span></p>
+      <p>📅 <strong>Дата и час:</strong> <span id="orderDate"></span></p>
+    </div>
+
+    <p style="margin-top:25px;">Благодарим Ви за доверието! Наш оператор ще се свърже с Вас за потвърждение.</p>
+
+    <a href="https://minoxidilbg.com/">⬅ Върнете се към началната страница</a>
+  </div>
+
+  <script>
+    // Взимаме параметрите от URL
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("име") || "Клиент";
+    const phone = params.get("телефон") || "";
+    const product = params.get("продукт") || "Продукт";
+    const qty = params.get("количество") || "1";
+
+    document.getElementById("greeting").textContent = `Благодарим Ви, ${name}!`;
+    document.getElementById("product").textContent = product;
+    document.getElementById("qty").textContent = qty;
+    document.getElementById("phone").textContent = phone;
+
+    // Случаен номер на поръчка
+    const orderNumber = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById("orderNumber").textContent = orderNumber;
+
+    // Дата и час
+    const now = new Date();
+    const days = ['Неделя','Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота'];
+    const formattedDate = `${days[now.getDay()]}, ${now.toLocaleDateString('bg-BG')} ${now.toLocaleTimeString('bg-BG')}`;
+    document.getElementById("orderDate").textContent = formattedDate;
+  </script>
+</body>
+</html>
