@@ -95,13 +95,15 @@ button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:1
     fetch(webAppUrl, { method: 'POST', body })
       .then(r => r.text())
       .then(() => {
-        statusEl.style.color = 'green';
-        statusEl.textContent = '✅ Поръчката е изпратена успешно!';
-        statusEl.style.display = 'block';
-        form.reset();
-        walletEl.disabled = true;
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      })
+  // ✅ Redirección a página de потвърждение con producto y количество
+  const name = encodeURIComponent(form.име.value);
+  const phone = encodeURIComponent(form.телефон.value);
+  const product = encodeURIComponent(form.producto.value);
+  const qty = encodeURIComponent(form.броики.value);
+
+  window.location.href = `/porachka-prieta.html?име=${name}&телефон=${phone}&продукт=${product}&количество=${qty}`;
+})
+
       .catch(() => {
         statusEl.style.color = 'red';
         statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
