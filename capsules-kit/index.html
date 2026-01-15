@@ -12,7 +12,7 @@
 
 <meta property="og:type" content="product">
 <meta property="og:title" content="Табло за пълнене на капсули + 1000 капсули | Домашна програма срещу косопад">
-<meta property="og:description" content="Професионално табло за пълнене на 100 капсули + 1000 колагенови капсули. Натурална система срещу косопад. Плащане при доставка.">
+<meta property="og:description" content="Професионално табло за пълнене на 100 капсули + 1000 желатинови капсули. Натурална система срещу косопад. Плащане при доставка.">
 <meta property="og:image" content="https://minoxidilbg.com/assets/images/capsules-1.png">
 
 <meta name="robots" content="index, follow">
@@ -43,7 +43,7 @@ button {width:100%; padding:15px; background:#111; color:#fff; font-size:18px; b
     "https://minoxidilbg.com/assets/images/capsules-1.png",
     "https://minoxidilbg.com/assets/images/capsules-2.png"
   ],
-  "description": "Професионален комплект за домашно капсулиране. Включва табло за 100 капсули и 1000 празни колагенови капсули. Част от натурална система срещу косопад.",
+  "description": "Професионален комплект за домашно капсулиране. Включва табло за 100 капсули и 1000 празни желатинови капсули. Част от натурална система срещу косопад.",
   "brand": { "@type": "Brand", "name": "MinoxidilBG" },
   "offers": {
     "@type": "Offer",
@@ -76,7 +76,7 @@ button {width:100%; padding:15px; background:#111; color:#fff; font-size:18px; b
   <img src="/assets/images/capsules-2.png" loading="lazy" alt="Процес на пълнене на капсули">
   <img src="/assets/images/capsules-3.png" loading="lazy" alt="Домашно капсулиране на добавки">
   <img src="/assets/images/capsules-4.png" loading="lazy" alt="Професионално табло за капсули">
-  <img src="/assets/images/capsules-5.png" loading="lazy" alt="Комплект за пълнене на капсули с колагенови капсули">
+  <img src="/assets/images/capsules-5.png" loading="lazy" alt="Комплект за пълнене на капсули с желатинови капсули">
 </div>
 </div>
 
@@ -126,19 +126,26 @@ button {width:100%; padding:15px; background:#111; color:#fff; font-size:18px; b
 
 <div class="card" id="order">
 <h2>Поръчай сега</h2>
+
 <form method="POST" action="https://formspree.io/f/xjggkozv">
+<input type="hidden" name="source" value="capsules-kit">
 
 <input class="form-group" type="text" name="name" placeholder="Име и фамилия" required>
 <input class="form-group" type="tel" name="phone" placeholder="Телефон" required>
 <input class="form-group" type="text" name="city" placeholder="Град" required>
 <textarea class="form-group" name="address" placeholder="Адрес или офис на куриер" required></textarea>
+
 <select class="form-group" name="delivery" required>
 <option value="">Избери доставка</option>
 <option>До адрес</option>
 <option>До офис на куриер</option>
 </select>
+
 <button type="submit">Потвърди поръчката</button>
-<p style="font-size:14px; opacity:0.7; text-align:center; margin-top:10px">Няма предварително плащане • Поръчката не е обвързваща • Куриерската услуга се заплаща отделно. Не е включена в цената</p>
+
+<p style="font-size:14px; opacity:0.7; text-align:center; margin-top:10px">
+Няма предварително плащане • Поръчката не е обвързваща • Куриерската услуга се заплаща отделно. Не е включена в цената
+</p>
 </form>
 </div>
 
