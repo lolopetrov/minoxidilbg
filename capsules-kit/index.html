@@ -148,6 +148,13 @@ button {width:100%; padding:15px; background:#111; color:#fff; font-size:18px; b
 Няма предварително плащане • Поръчката не е обвързваща • Куриерската услуга се заплаща отделно. Не е включена в цената
 </p>
 </form>
+
+<div id="success-message" style="display:none; margin-top:20px; padding:15px; background:#e6f7ee; border:1px solid #1f8a5f; border-radius:6px; color:#0f5132;">
+  ✅ Поръчката е изпратена успешно!  
+  <br><br>
+  Ще се свържем с вас по телефона за потвърждение на детайлите за доставка.
+</div>
+
 </div>
 
 <section style="margin-top:30px">
@@ -163,5 +170,34 @@ button {width:100%; padding:15px; background:#111; color:#fff; font-size:18px; b
 </div>
 
 </div>
+
+<script>
+const form = document.querySelector('form');
+const successBox = document.getElementById('success-message');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  }).then(response => {
+    if (response.ok) {
+      successBox.style.display = "block";
+      successBox.scrollIntoView({ behavior: "smooth" });
+      form.reset();
+      document.querySelector("button[type='submit']").style.display = "none";
+    } else {
+      alert("Възникна проблем при изпращането. Моля, опитайте отново.");
+    }
+  }).catch(error => {
+    alert("Грешка в връзката. Моля, опитайте по-късно.");
+  });
+});
+</script>
+
 </body>
 </html>
