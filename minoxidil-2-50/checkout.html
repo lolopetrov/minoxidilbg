@@ -1,152 +1,154 @@
----
-layout: none
-sitemap: false
----
-
 <!doctype html>
 <html lang="bg">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Поръчай Миноксидил 2%</title>
-<style>
-:root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
-body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
-.container{max-width:500px;margin:0 auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-h1{text-align:center;margin-bottom:15px}
-.product-img{width:100%;border-radius:8px;margin-bottom:15px}
-label{display:block;margin:10px 0 5px;font-weight:600}
-input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
-button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
-#status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 
-/* NFT: alineación del checkbox con el texto */
-.form-check{display:flex;align-items:center;gap:8px;margin:12px 0}
-.form-check input[type="checkbox"]{width:18px;height:18px}
-.form-check .checkbox-label{margin:0;font-weight:600}
+<title>Поръчка — Миноксидил 2% 50 ml | MinoxidilBG</title>
+<meta name="description" content="Поръчка на Миноксидил 2% - 50 ml.">
+
+<link rel="canonical" href="https://minoxidilbg.com/minoxidil-2-50/checkout.html">
+
+<style>
+:root{--cta:#ff7a59;--muted:#6b7280}
+body{margin:0;font-family:Inter,Arial;background:#fff}
+.container{max-width:760px;margin:auto;padding:20px}
+.card{border:1px solid #eee;border-radius:12px;padding:18px}
+h1{margin:0 0 14px;font-size:1.7rem}
+p{color:var(--muted)}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input, textarea, select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font:inherit;
+}
+textarea{min-height:110px}
+button{
+  display:inline-block;
+  background:var(--cta);
+  color:#fff;
+  padding:16px;
+  border-radius:10px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  margin-top:16px;
+  width:100%;
+}
+.summary{
+  background:#fff4f0;
+  border-radius:10px;
+  padding:14px;
+  margin:16px 0;
+}
+.small{font-size:.95rem;color:var(--muted)}
+.hp-field{
+  position:absolute !important;
+  left:-5000px !important;
+  opacity:0 !important;
+}
 </style>
 </head>
+
 <body>
-<div class="container">
-  <h1>Поръчай Миноксидил 2%</h1>
-  <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
-  <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
 
- <form id="orderForm" novalidate>
-  <!-- Producto fijo de esta página -->
-  <input type="hidden" name="producto" value="Миноксидил 2%">
+<main class="container">
+<div class="card">
 
-  <label>Име и фамилия:</label>
-  <input type="text" name="име" required>
+<h1>Поръчка — Миноксидил 2% 50 ml</h1>
+<p>Попълнете данните и ще се свържем с вас за потвърждение.</p>
 
-  <label>Телефон:</label>
-  <input type="tel" name="телефон" required>
-
-  <label>Адрес за доставка:</label>
-  <textarea name="адрес" rows="3" required></textarea>
-
-  <div style="margin-top:10px">
-    <label for="customerEmail">Вашият имейл:</label>
-    <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required>
-    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
-  </div>
-
-  <!-- NFT certificado -->
-  <div class="form-check">
-    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
-    <label for="nft_cert" class="checkbox-label">Желая NFT сертификат за покупката си</label>
-  </div>
-
-  <!-- Wallet (solo si NFT) -->
-  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
-  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." disabled>
-
-  <label>Количество:</label>
-  <input type="number" name="броики" min="1" value="1" required>
-
-  <button type="submit">🛒 Изпрати поръчка</button>
-</form>
-
-  <p id="status">✅ Поръчката е изпратена успешно!</p>
+<div class="summary">
+  <div><strong>Продукт:</strong> Миноксидил 2%</div>
+  <div><strong>Размер:</strong> 50 ml</div>
+  <div><strong>Количество:</strong> <span id="qtyText">1 бр</span></div>
+  <div><strong>Общо:</strong> <span id="totalText">15.00 €</span></div>
 </div>
 
+<form action="https://api.web3forms.com/submit" method="POST" id="orderForm">
+
+<input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
+<input type="hidden" name="subject" value="Нова поръчка — Миноксидил 2% 50 ml">
+<input type="hidden" name="from_name" value="MinoxidilBG Orders">
+
+<input type="hidden" name="product" value="Миноксидил 2%">
+<input type="hidden" name="size" value="50 ml">
+
+<input type="hidden" name="qty" id="qtyField" value="1">
+<input type="hidden" name="total" id="totalField" value="15.00 €">
+
+<input type="hidden" name="redirect" id="redirectField" value="https://minoxidilbg.com/minoxidil-2-50/thanks.html?qty=1">
+
+<!-- honeypot -->
+<input type="checkbox" name="botcheck" class="hp-field">
+
+<label>Име</label>
+<input type="text" name="name" required>
+
+<label>Телефон</label>
+<input type="text" name="phone" required>
+
+<label>Email</label>
+<input type="email" name="email">
+
+<label>Град / Адрес / Офис</label>
+<textarea name="address" required></textarea>
+
+<label>Количество</label>
+<select id="qtySelect">
+  <option value="1">1 бр</option>
+  <option value="2">2 бр</option>
+  <option value="3">3 бр</option>
+</select>
+
+<label>Бележка</label>
+<textarea name="message"></textarea>
+
+<button type="submit">Изпрати поръчката</button>
+
+</form>
+
+<p class="small">Ще се свържем с вас за потвърждение.</p>
+
+</div>
+</main>
+
 <script>
-  const form = document.getElementById('orderForm');
-  const statusEl = document.getElementById('status');
-  const emailEl = document.getElementById('customerEmail');
-  const nftEl = document.getElementById('nft_cert');
-  const walletEl = document.getElementById('wallet');
+const prices = {
+  1: 15.00,
+  2: 28.00,
+  3: 39.00
+};
 
-  // Tu Web App URL
-  const webAppUrl = "https://script.google.com/macros/s/AKfycbzDRhB6ehtoI26YnevFTP-jxVGR1k3VchOi3xauQ8DxNgLYtKS5N8364n9m6TjU5mK8-Q/exec";
+function getQtyFromUrl(){
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("qty");
+  return prices[q] ? q : "1";
+}
 
-  // Activar/desactivar Wallet según NFT
-  nftEl.addEventListener('change', () => {
-    if (nftEl.checked) {
-      walletEl.disabled = false;
-    } else {
-      walletEl.disabled = true;
-      walletEl.value = "";
-    }
-  });
+function updateOrder(qty){
+  const total = prices[qty];
 
-  function sendOrder(data) {
-    const body = new URLSearchParams(data); // x-www-form-urlencoded
-    fetch(webAppUrl, { method: 'POST', body })
-      .then(r => r.text())
-      .then(() => {
-  // ✅ Redirección a página de потвърждение con producto y количество
-  const name = encodeURIComponent(form.име.value);
-  const phone = encodeURIComponent(form.телефон.value);
-  const product = encodeURIComponent(form.producto.value);
-  const qty = encodeURIComponent(form.броики.value);
+  document.getElementById("qtySelect").value = qty;
+  document.getElementById("qtyField").value = qty;
+  document.getElementById("totalField").value = total.toFixed(2) + " €";
 
-  window.location.href = `/porachka-prieta.html?име=${name}&телефон=${phone}&продукт=${product}&количество=${qty}`;
-})
+  document.getElementById("qtyText").textContent = qty + " бр";
+  document.getElementById("totalText").textContent = total.toFixed(2) + " €";
 
-      .catch(() => {
-        statusEl.style.color = 'red';
-        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
-        statusEl.style.display = 'block';
-        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      });
-  }
+  document.getElementById("redirectField").value =
+    "https://minoxidilbg.com/minoxidil-2-50/thanks.html?qty=" + qty;
+}
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+const initialQty = getQtyFromUrl();
+updateOrder(initialQty);
 
-    const emailVal = (emailEl?.value || '').trim();
-    const product  = (form.producto?.value || "Миноксидил 2%");
-    const wantsNft = nftEl.checked;
-    const walletVal = (walletEl.value || '').trim();
-
-    // Validación manual (usas novalidate)
-    if (wantsNft && !walletVal) {
-      statusEl.style.color = 'red';
-      statusEl.textContent = '⚠️ Моля, въведете адрес на портфейла за NFT.';
-      statusEl.style.display = 'block';
-      statusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      return;
-    }
-
-    const data = {
-      име: form.име.value,
-      телефон: form.телефон.value,
-      адрес: form.адрес.value,
-      броики: form.броики.value,
-      customerEmail: emailVal,
-      email: emailVal,   // compatibilidad
-      producto: product
-    };
-
-    // Solo añadimos estos campos si corresponde
-    if (wantsNft) {
-      data.nft_cert = "yes";
-      if (walletVal) data.wallet = walletVal;
-    }
-
-    sendOrder(data);
-  });
+document.getElementById("qtySelect").addEventListener("change", function(){
+  updateOrder(this.value);
+});
 </script>
+
 </body>
 </html>
