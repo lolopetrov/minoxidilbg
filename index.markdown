@@ -25,12 +25,25 @@ permalink: /
 Терапията с миноксидил намира приложение и при алопеция ареата.  
 
 <div style="margin-top:20px; text-align:center; display:flex; flex-direction:column; gap:12px; max-width:320px; margin-left:auto; margin-right:auto;">
-  <a href="https://minoxidilbg.com/minoxidil-2/" style="display:inline-block; padding:14px 20px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
-    👉 Миноксидил 2% за жени — Поръчай онлайн
+  
+  <!-- 2% -->
+  <a href="https://minoxidilbg.com/minoxidil-2/" style="display:inline-block; padding:14px 20px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem;">
+    👉 Миноксидил 2% (125 ml) — Поръчай
   </a>
-  <a href="https://minoxidilbg.com/minoxidil-5/" style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
-    👉 Миноксидил 5% за мъже — Поръчай онлайн
+
+  <a href="https://minoxidilbg.com/minoxidil-2-50/" style="display:inline-block; padding:10px 20px; background:#81c784; color:white; font-weight:600; border-radius:8px; text-decoration:none; font-size:0.95rem;">
+    👉 Миноксидил 2% (50 ml)
   </a>
+
+  <!-- 5% -->
+  <a href="https://minoxidilbg.com/minoxidil-5/" style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem;">
+    👉 Миноксидил 5% (125 ml) — Поръчай
+  </a>
+
+  <a href="https://minoxidilbg.com/minoxidil-5-50/" style="display:inline-block; padding:10px 20px; background:#ff9a80; color:white; font-weight:600; border-radius:8px; text-decoration:none; font-size:0.95rem;">
+    👉 Миноксидил 5% (50 ml)
+  </a>
+
 </div>
 
 ---
@@ -83,12 +96,25 @@ permalink: /
 ---
 
 <div style="margin-top:20px; text-align:center; display:flex; flex-direction:column; gap:12px; max-width:320px; margin-left:auto; margin-right:auto;">
-  <a href="https://minoxidilbg.com/minoxidil-2/" style="display:inline-block; padding:14px 20px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
-    👉 Миноксидил 2% за жени — Поръчай онлайн
+  
+  <!-- 2% -->
+  <a href="https://minoxidilbg.com/minoxidil-2/" style="display:inline-block; padding:14px 20px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem;">
+    👉 Миноксидил 2% (125 ml) — Поръчай
   </a>
-  <a href="https://minoxidilbg.com/minoxidil-5/" style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:all 0.2s ease;">
-    👉 Миноксидил 5% за мъже — Поръчай онлайн
+
+  <a href="https://minoxidilbg.com/minoxidil-2-50/" style="display:inline-block; padding:10px 20px; background:#81c784; color:white; font-weight:600; border-radius:8px; text-decoration:none; font-size:0.95rem;">
+    👉 Миноксидил 2% (50 ml)
   </a>
+
+  <!-- 5% -->
+  <a href="https://minoxidilbg.com/minoxidil-5/" style="display:inline-block; padding:14px 20px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1rem;">
+    👉 Миноксидил 5% (125 ml) — Поръчай
+  </a>
+
+  <a href="https://minoxidilbg.com/minoxidil-5-50/" style="display:inline-block; padding:10px 20px; background:#ff9a80; color:white; font-weight:600; border-radius:8px; text-decoration:none; font-size:0.95rem;">
+    👉 Миноксидил 5% (50 ml)
+  </a>
+
 </div>
 
 *MinoxidilBG: информация и личен опит за алопеция и косопад*
