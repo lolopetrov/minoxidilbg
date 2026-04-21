@@ -1,0 +1,152 @@
+---
+layout: none
+sitemap: false
+---
+
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поръчай Миноксидил 2%</title>
+<style>
+:root{--accent:#1f8a5f;--accent-2:#ff7a59;--bg:#ffffff;--muted:#6b7280}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);margin:0;padding:20px}
+.container{max-width:500px;margin:0 auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
+h1{text-align:center;margin-bottom:15px}
+.product-img{width:100%;border-radius:8px;margin-bottom:15px}
+label{display:block;margin:10px 0 5px;font-weight:600}
+input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem}
+button{margin-top:18px;background:var(--accent);color:#fff;border:none;padding:12px 0;border-radius:8px;font-size:1rem;width:100%;cursor:pointer;font-weight:700}
+#status{text-align:center;margin-top:15px;font-weight:600;color:green;display:none}
+
+/* NFT: alineación del checkbox con el texto */
+.form-check{display:flex;align-items:center;gap:8px;margin:12px 0}
+.form-check input[type="checkbox"]{width:18px;height:18px}
+.form-check .checkbox-label{margin:0;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Поръчай Миноксидил 2%</h1>
+  <img src="https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png" alt="Миноксидил 2%" class="product-img">
+  <p style="text-align:center;color:var(--muted)">Попълнете данните за доставка (наложен платеж):</p>
+
+ <form id="orderForm" novalidate>
+  <!-- Producto fijo de esta página -->
+  <input type="hidden" name="producto" value="Миноксидил 2%">
+
+  <label>Име и фамилия:</label>
+  <input type="text" name="име" required>
+
+  <label>Телефон:</label>
+  <input type="tel" name="телефон" required>
+
+  <label>Адрес за доставка:</label>
+  <textarea name="адрес" rows="3" required></textarea>
+
+  <div style="margin-top:10px">
+    <label for="customerEmail">Вашият имейл:</label>
+    <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required>
+    <small id="emailError" style="color:#d32f2f;display:none;font-size:0.85rem">Моля, въведете валиден имейл адрес.</small>
+  </div>
+
+  <!-- NFT certificado -->
+  <div class="form-check">
+    <input type="checkbox" id="nft_cert" name="nft_cert" value="yes">
+    <label for="nft_cert" class="checkbox-label">Желая NFT сертификат за покупката си</label>
+  </div>
+
+  <!-- Wallet (solo si NFT) -->
+  <label for="wallet">Адрес на моя крипто портфейл (MetaMask/Phantom):</label>
+  <input type="text" id="wallet" name="wallet" placeholder="0x... или 3HhD..." disabled>
+
+  <label>Количество:</label>
+  <input type="number" name="броики" min="1" value="1" required>
+
+  <button type="submit">🛒 Изпрати поръчка</button>
+</form>
+
+  <p id="status">✅ Поръчката е изпратена успешно!</p>
+</div>
+
+<script>
+  const form = document.getElementById('orderForm');
+  const statusEl = document.getElementById('status');
+  const emailEl = document.getElementById('customerEmail');
+  const nftEl = document.getElementById('nft_cert');
+  const walletEl = document.getElementById('wallet');
+
+  // Tu Web App URL
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbzDRhB6ehtoI26YnevFTP-jxVGR1k3VchOi3xauQ8DxNgLYtKS5N8364n9m6TjU5mK8-Q/exec";
+
+  // Activar/desactivar Wallet según NFT
+  nftEl.addEventListener('change', () => {
+    if (nftEl.checked) {
+      walletEl.disabled = false;
+    } else {
+      walletEl.disabled = true;
+      walletEl.value = "";
+    }
+  });
+
+  function sendOrder(data) {
+    const body = new URLSearchParams(data); // x-www-form-urlencoded
+    fetch(webAppUrl, { method: 'POST', body })
+      .then(r => r.text())
+      .then(() => {
+  // ✅ Redirección a página de потвърждение con producto y количество
+  const name = encodeURIComponent(form.име.value);
+  const phone = encodeURIComponent(form.телефон.value);
+  const product = encodeURIComponent(form.producto.value);
+  const qty = encodeURIComponent(form.броики.value);
+
+  window.location.href = `/porachka-prieta.html?име=${name}&телефон=${phone}&продукт=${product}&количество=${qty}`;
+})
+
+      .catch(() => {
+        statusEl.style.color = 'red';
+        statusEl.textContent = '⚠️ Грешка при изпращане. Опитайте отново.';
+        statusEl.style.display = 'block';
+        statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailVal = (emailEl?.value || '').trim();
+    const product  = (form.producto?.value || "Миноксидил 2%");
+    const wantsNft = nftEl.checked;
+    const walletVal = (walletEl.value || '').trim();
+
+    // Validación manual (usas novalidate)
+    if (wantsNft && !walletVal) {
+      statusEl.style.color = 'red';
+      statusEl.textContent = '⚠️ Моля, въведете адрес на портфейла за NFT.';
+      statusEl.style.display = 'block';
+      statusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    const data = {
+      име: form.име.value,
+      телефон: form.телефон.value,
+      адрес: form.адрес.value,
+      броики: form.броики.value,
+      customerEmail: emailVal,
+      email: emailVal,   // compatibilidad
+      producto: product
+    };
+
+    // Solo añadimos estos campos si corresponde
+    if (wantsNft) {
+      data.nft_cert = "yes";
+      if (walletVal) data.wallet = walletVal;
+    }
+
+    sendOrder(data);
+  });
+</script>
+</body>
+</html>
