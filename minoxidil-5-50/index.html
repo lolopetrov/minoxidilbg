@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Миноксидил 5% 50 ml — компактен флакон | MinoxidilBG</title>
+
+<meta name="description" content="Миноксидил 5% 50 ml — удобен вариант за проба или пътуване. Стимулира растежа и намалява косопада.">
+
+<link rel="canonical" href="https://minoxidilbg.com/minoxidil-5-50/">
+
+<style>
+:root{--cta:#ff7a59;--muted:#6b7280}
+body{margin:0;font-family:Inter,Arial;background:#fff}
+.container{max-width:980px;margin:auto;padding:20px}
+.hero{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:center}
+h1{font-size:1.7rem;margin:0 0 10px}
+.price{font-size:1.6rem;font-weight:700;margin:10px 0}
+.cta{display:inline-block;background:var(--cta);color:#fff;padding:16px 20px;border-radius:10px;font-weight:700;text-decoration:none}
+.card{border:1px solid #eee;padding:14px;border-radius:12px;text-align:center}
+.muted{color:var(--muted)}
+.qty-box{margin-top:16px}
+.qty-option{border:1px solid #eee;padding:12px;border-radius:10px;margin-bottom:10px;cursor:pointer}
+.qty-option.active{border:2px solid #ff7a59;background:#fff7f4}
+.badge{background:#e6f7ef;color:#1f8a5f;padding:6px 10px;border-radius:999px;font-size:0.8rem}
+@media(max-width:880px){.hero{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<div class="hero">
+
+<div>
+
+<span class="badge">🔥 50 ml версия</span>
+
+<h1>Миноксидил 5% — 50 ml</h1>
+
+<p class="muted">
+Компактен флакон, подходящ за проба или пътуване.  
+Силна формула за стимулиране на растежа и намаляване на косопада.
+</p>
+
+<div class="qty-box">
+
+<div class="qty-option active" onclick="selectQty(1,15,this)">
+<input type="radio" name="qty" checked> 1 бр — 15.00 €
+</div>
+
+<div class="qty-option" onclick="selectQty(2,28,this)">
+<input type="radio" name="qty"> 2 бр — 28.00 € <span style="color:#16a34a">(спестяваш)</span>
+</div>
+
+<div class="qty-option" onclick="selectQty(3,39,this)">
+<input type="radio" name="qty"> 3 бр — 39.00 € <span style="color:#16a34a">(най-добра цена)</span>
+</div>
+
+</div>
+
+<p class="price" id="price">15.00 €</p>
+
+<a id="buyBtn" class="cta" href="/minoxidil-5-50/checkout.html?qty=1">
+🛒 Поръчай сега
+</a>
+
+<p class="muted" style="margin-top:10px">
+🚚 Бърза доставка | 🔒 Плащане при доставка | ✅ Оригинален продукт
+</p>
+
+</div>
+
+<div class="card">
+<img src="https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif" style="max-width:240px">
+<p class="muted">50 ml | Флакон</p>
+</div>
+
+</div>
+
+<!-- INFO -->
+<div style="margin-top:24px">
+<h2>Как действа</h2>
+<p class="muted">
+Миноксидил увеличава кръвоснабдяването на космените фоликули и стимулира растежа на косата при редовна употреба.
+</p>
+</div>
+
+<!-- UPSELL -->
+<div style="margin-top:20px;padding:14px;background:#fff4f0;border-radius:10px">
+💡 По-изгодно: <a href="/minoxidil-5/">виж 125 ml вариант</a>
+</div>
+
+</main>
+
+<script>
+function selectQty(qty, price, el){
+  document.querySelectorAll('.qty-option').forEach(e=>e.classList.remove('active'));
+  el.classList.add('active');
+
+  document.getElementById('price').innerText = price.toFixed(2) + ' €';
+  document.getElementById('buyBtn').href = '/minoxidil-5-50/checkout.html?qty=' + qty;
+}
+</script>
+
+</body>
+</html>
