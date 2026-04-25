@@ -19,9 +19,9 @@ h1{font-size:1.7rem;margin:0 0 10px}
 h2{margin:0 0 8px}
 .price{font-size:1.8rem;font-weight:800;margin:12px 0}
 .cta{display:inline-block;background:var(--cta);color:#fff;padding:16px 20px;border-radius:10px;font-weight:700;text-decoration:none}
-.badge{background:#e6f7ef;color:#4caf50;padding:6px 10px;border-radius:999px;font-size:0.85rem;display:inline-block}
+.badge{background:#e6f7ef;color:#4caf50;padding:6px 10px;border-radius:999px;font-size:0.85rem}
 .product-card{border:1px solid #eee;padding:14px;border-radius:12px;text-align:center}
-.product-card img{max-width:260px;width:100%;height:auto}
+.product-card img{max-width:260px;width:100%}
 .trust{margin-top:10px;color:var(--muted);font-size:0.9rem}
 .section{margin-top:24px}
 .faq details{border-top:1px solid #eee;padding:12px 0}
@@ -30,24 +30,6 @@ h2{margin:0 0 8px}
 .offer-box{border:2px solid var(--cta);background:#e8f5e9;padding:16px;border-radius:12px;margin:16px 0}
 @media(max-width:880px){.hero{grid-template-columns:1fr}}
 </style>
-
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"Product",
-"name":"Миноксидил 2% 50 ml — 3 флакона",
-"image":"https://minoxidilbg.com/assets/images/minoxidil-50ml-2.png",
-"description":"Миноксидил 2% 50 ml — промо оферта 3 флакона за 30€.",
-"sku":"MINOX-2-50-3",
-"offers":{
-"@type":"Offer",
-"url":"https://minoxidilbg.com/minoxidil-2-50/checkout.html?qty=3",
-"price":"30.00",
-"priceCurrency":"EUR",
-"availability":"https://schema.org/InStock"
-}
-}
-</script>
 
 </head>
 <body>
@@ -64,7 +46,6 @@ h2{margin:0 0 8px}
 <p style="color:var(--muted)">
 Щадяща формула за жени и чувствителен скалп.  
 Подпомага растежа на косата и намалява косопада.
-Офертата е само за компактни флакони 50 ml.
 </p>
 
 <div class="highlight">
@@ -74,12 +55,12 @@ h2{margin:0 0 8px}
 </div>
 
 <div class="offer-box">
-  <div style="font-size:1.1rem;font-weight:700">Промо пакет</div>
-  <div style="color:#6b7280;margin-top:4px">3 бр × 50 ml</div>
-  <p class="price">30.00 €</p>
+  <div style="font-weight:700">Промо пакет</div>
+  <div style="color:#6b7280">3 × 50 ml</div>
+  <p class="price">30€</p>
 </div>
 
-<a class="cta" href="/minoxidil-2-50/checkout.html?qty=3">
+<a class="cta" href="/minoxidil-2-50/checkout.html">
 🛒 Поръчай 3 бр
 </a>
 
@@ -90,8 +71,8 @@ h2{margin:0 0 8px}
 </div>
 
 <div class="product-card">
-<img src="https://minoxidilbg.com/assets/images/minoxidil-50ml-2.png" alt="Миноксидил 2% 50 ml">
-<p style="color:#6b7280">3 × 50 ml | Флакони</p>
+<img src="https://minoxidilbg.com/assets/images/minoxidil-50ml-2.png">
+<p style="color:#6b7280">3 × 50 ml</p>
 </div>
 
 </div>
@@ -99,24 +80,22 @@ h2{margin:0 0 8px}
 <div class="section">
 <h2>Как действа?</h2>
 <p style="color:var(--muted)">
-Миноксидил увеличава кръвоснабдяването на космените фоликули,
-подпомага фазата на растеж и създава условия за по-здрава коса.
+Миноксидил увеличава кръвоснабдяването на фоликулите и подпомага растежа на косата.
 </p>
 </div>
 
 <div class="section highlight">
-⚠️ Офертата е само за 50 ml флакони  
-<br>📦 Често се изчерпва
+🔥 Само днес: 3 × 50 ml за 30€  
+<br>📦 Остават ограничени бройки
 </div>
 
 <div class="section">
 <h2>Често задавани въпроси</h2>
 
 <div class="faq">
-
 <details>
 <summary>Подходящ ли е за жени?</summary>
-<div>Да — това е най-често препоръчваният вариант при жени.</div>
+<div>Да — това е най-често препоръчваният вариант.</div>
 </details>
 
 <details>
@@ -125,28 +104,85 @@ h2{margin:0 0 8px}
 </details>
 
 <details>
-<summary>Каква е разликата с 5%?</summary>
+<summary>Разлика с 5%?</summary>
 <div>2% е по-щадящ, 5% е по-силен.</div>
 </details>
-
-<details>
-<summary>Какво става ако спра?</summary>
-<div>Ефектът постепенно намалява.</div>
-</details>
-
 </div>
+
 </div>
 
 <footer>
-<p>© <a href="/">MinoxidilBG</a> — Всички права запазени</p>
-<p>
-Тел. 0878 914 807 |
-<a href="mailto:minoxidilbg@gmail.com">minoxidilbg@gmail.com</a> |
-<a href="/qa/">Въпроси и Отговори</a>
-</p>
+<p>© <a href="/">MinoxidilBG</a></p>
 </footer>
 
 </main>
+
+<!-- 🔥 BOOST BLOCK -->
+
+<style>
+.sticky-boost{
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:9999;
+  background:#fff;
+  border-top:1px solid #eee;
+  box-shadow:0 -6px 24px rgba(0,0,0,.10);
+  padding:10px;
+}
+.sticky-boost-inner{
+  max-width:520px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.sticky-boost-text{
+  font-size:.9rem;
+  font-weight:700;
+}
+.sticky-boost-text span{
+  color:#4caf50;
+}
+.sticky-boost-btn{
+  background:#4caf50;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+}
+@media(max-width:768px){
+  .sticky-boost{display:block}
+  body{padding-bottom:80px}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const hero = document.querySelector(".hero > div");
+  if(hero){
+    const box = document.createElement("div");
+    box.className = "highlight";
+    box.innerHTML = "🔥 Само днес: 3 × 50 ml за 30€<br>📦 Остават ограничени бройки";
+    hero.appendChild(box);
+  }
+});
+</script>
+
+<div class="sticky-boost">
+  <div class="sticky-boost-inner">
+    <div class="sticky-boost-text">
+      🔥 3 × 50 ml<br>
+      <span>30€ днес</span>
+    </div>
+    <a class="sticky-boost-btn" href="/minoxidil-2-50/checkout.html">
+      🛒 Поръчай
+    </a>
+  </div>
+</div>
 
 </body>
 </html>
