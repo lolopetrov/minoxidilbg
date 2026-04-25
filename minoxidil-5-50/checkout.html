@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 <title>Поръчка — Миноксидил 5% 50 ml | MinoxidilBG</title>
-<meta name="description" content="Поръчка на Миноксидил 5% 50 ml.">
+<meta name="description" content="Поръчка на Миноксидил 5% 50 ml — 3 флакона за 30€.">
 
 <link rel="canonical" href="https://minoxidilbg.com/minoxidil-5-50/checkout.html">
 
@@ -17,7 +17,7 @@ body{margin:0;font-family:Inter,Arial;background:#fff}
 h1{margin:0 0 14px;font-size:1.7rem}
 p{color:var(--muted)}
 label{display:block;font-weight:600;margin:14px 0 6px}
-input, textarea, select{
+input, textarea{
   width:100%;
   padding:12px;
   border:1px solid #ddd;
@@ -44,6 +44,7 @@ button{
   padding:14px;
   margin:16px 0;
 }
+.summary div{margin:5px 0}
 .small{font-size:.95rem;color:var(--muted)}
 .hp-field{
   position:absolute !important;
@@ -65,23 +66,23 @@ button{
 <div class="summary">
   <div><strong>Продукт:</strong> Миноксидил 5%</div>
   <div><strong>Размер:</strong> 50 ml</div>
-  <div><strong>Количество:</strong> <span id="qtyText">1 бр</span></div>
-  <div><strong>Общо:</strong> <span id="totalText">15.00 €</span></div>
+  <div><strong>Количество:</strong> 3 бр</div>
+  <div><strong>Общо:</strong> 30.00 €</div>
 </div>
 
 <form action="https://api.web3forms.com/submit" method="POST" id="orderForm">
 
   <input type="hidden" name="access_key" value="5e916cd2-7828-4c91-acdc-0a675769269f">
-  <input type="hidden" name="subject" value="Нова поръчка — Миноксидил 5% 50 ml">
+  <input type="hidden" name="subject" value="Нова поръчка — Миноксидил 5% 50 ml — 3 бр за 30€">
   <input type="hidden" name="from_name" value="MinoxidilBG Orders">
 
   <input type="hidden" name="product" value="Миноксидил 5%">
   <input type="hidden" name="size" value="50 ml">
+  <input type="hidden" name="qty" value="3">
+  <input type="hidden" name="total" value="30.00 €">
+  <input type="hidden" name="offer" value="3 бр × 50 ml за 30€">
 
-  <input type="hidden" name="qty" id="qtyField" value="1">
-  <input type="hidden" name="total" id="totalField" value="15.00 €">
-
-  <input type="hidden" name="redirect" id="redirectField" value="https://minoxidilbg.com/minoxidil-5-50/thanks.html?qty=1">
+  <input type="hidden" name="redirect" value="https://minoxidilbg.com/minoxidil-5-50/thanks.html?qty=3">
 
   <!-- Honeypot anti-spam -->
   <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
@@ -98,13 +99,6 @@ button{
   <label for="address">Град / Адрес / Офис</label>
   <textarea id="address" name="address" required></textarea>
 
-  <label for="qtySelect">Количество</label>
-  <select id="qtySelect">
-    <option value="1">1 бр</option>
-    <option value="2">2 бр</option>
-    <option value="3">3 бр</option>
-  </select>
-
   <label for="message">Бележка</label>
   <textarea id="message" name="message"></textarea>
 
@@ -116,41 +110,6 @@ button{
 
 </div>
 </main>
-
-<script>
-const prices = {
-  1: 15.00,
-  2: 28.00,
-  3: 39.00
-};
-
-function getQtyFromUrl(){
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("qty");
-  return prices[q] ? q : "1";
-}
-
-function updateOrder(qty){
-  const total = prices[qty];
-
-  document.getElementById("qtySelect").value = qty;
-  document.getElementById("qtyField").value = qty;
-  document.getElementById("totalField").value = total.toFixed(2) + " €";
-
-  document.getElementById("qtyText").textContent = qty + " бр";
-  document.getElementById("totalText").textContent = total.toFixed(2) + " €";
-
-  document.getElementById("redirectField").value =
-    "https://minoxidilbg.com/minoxidil-5-50/thanks.html?qty=" + qty;
-}
-
-const initialQty = getQtyFromUrl();
-updateOrder(initialQty);
-
-document.getElementById("qtySelect").addEventListener("change", function(){
-  updateOrder(this.value);
-});
-</script>
 
 </body>
 </html>
