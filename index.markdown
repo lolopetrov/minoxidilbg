@@ -21,13 +21,16 @@ permalink: /
 
   <!-- 2% -->
   <div style="background:#f0fff4; border:1px solid #d7f5df; padding:18px; border-radius:14px; text-align:center;">
-    <div style="font-size:0.9rem; color:#4caf50; font-weight:700;">🌿 Миноксидил 2%</div>
+    
+    <div style="font-size:0.9rem; color:#4caf50; font-weight:700;">
+      🌿 Миноксидил 2%
+    </div>
 
-    <div style="font-size:1.4rem; font-weight:800; margin:8px 0;">
+    <div style="font-size:1.3rem; font-weight:800; margin:8px 0;">
       3 × 50 ml
     </div>
 
-    <div style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">
+    <div style="font-size:1.7rem; font-weight:800; margin-bottom:12px;">
       30€
     </div>
 
@@ -35,17 +38,25 @@ permalink: /
        style="display:block; background:#4caf50; color:#fff; padding:16px; border-radius:10px; font-weight:700; text-decoration:none;">
       🛒 Поръчай
     </a>
+
+    <div style="margin-top:8px; font-size:0.85rem; color:#6b7280;">
+      За жени и чувствителен скалп
+    </div>
+
   </div>
 
   <!-- 5% -->
   <div style="background:#fff4f0; border:1px solid #ffd6c9; padding:18px; border-radius:14px; text-align:center;">
-    <div style="font-size:0.9rem; color:#ff7a59; font-weight:700;">🔥 Миноксидил 5%</div>
+    
+    <div style="font-size:0.9rem; color:#ff7a59; font-weight:700;">
+      🔥 Миноксидил 5%
+    </div>
 
-    <div style="font-size:1.4rem; font-weight:800; margin:8px 0;">
+    <div style="font-size:1.3rem; font-weight:800; margin:8px 0;">
       3 × 50 ml
     </div>
 
-    <div style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">
+    <div style="font-size:1.7rem; font-weight:800; margin-bottom:12px;">
       30€
     </div>
 
@@ -53,6 +64,11 @@ permalink: /
        style="display:block; background:#ff7a59; color:#fff; padding:16px; border-radius:10px; font-weight:700; text-decoration:none;">
       🛒 Поръчай
     </a>
+
+    <div style="margin-top:8px; font-size:0.85rem; color:#6b7280;">
+      За мъже и по-силен косопад
+    </div>
+
   </div>
 
 </div>
