@@ -17,7 +17,7 @@ permalink: /
 
 ## 🔥 Промо оферта (50 ml)
 
-<div style="margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:760px; margin-left:auto; margin-right:auto;">
+<div id="buy-options" style="margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:760px; margin-left:auto; margin-right:auto;">
 
   <!-- 2% -->
   <div style="background:#f0fff4; border:1px solid #d7f5df; padding:18px; border-radius:14px; text-align:center;">
@@ -137,16 +137,63 @@ permalink: /
 
 ---
 
-<div style="margin-top:20px; text-align:center; display:flex; flex-direction:column; gap:12px; max-width:320px; margin-left:auto; margin-right:auto;">
-  
-  <a href="/minoxidil-2-50/" style="padding:14px; background:#4caf50; color:white; font-weight:700; border-radius:8px; text-decoration:none;">
-    🛒 Виж Миноксидил 2% — 50 ml оферта
-  </a>
+<style>
+.sticky-offer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:9999;
+  background:#fff;
+  border-top:1px solid #e5e7eb;
+  box-shadow:0 -6px 24px rgba(0,0,0,.10);
+  padding:10px;
+  display:none;
+}
+.sticky-offer-inner{
+  max-width:430px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.sticky-btn{
+  background:#ff7a59;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:800;
+}
+.whatsapp{
+  position:fixed;
+  right:14px;
+  bottom:80px;
+  background:#25D366;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+  display:none;
+}
+@media(max-width:768px){
+  .sticky-offer{display:block}
+  .whatsapp{display:block}
+  body{padding-bottom:90px}
+}
+</style>
 
-  <a href="/minoxidil-5-50/" style="padding:14px; background:#ff7a59; color:white; font-weight:700; border-radius:8px; text-decoration:none;">
-    🛒 Виж Миноксидил 5% — 50 ml оферта
-  </a>
+<a class="whatsapp" href="https://wa.me/359878914807?text=Искам%203x50ml%20миноксидил%20за%2030€">WhatsApp</a>
 
+<div class="sticky-offer">
+  <div class="sticky-offer-inner">
+    <div>
+      <strong>3 × 50 ml</strong><br>
+      <span style="color:#ff7a59;font-weight:800;">30€</span>
+    </div>
+    <a href="#buy-options" class="sticky-btn">🛒 Купи</a>
+  </div>
 </div>
 
 ---
