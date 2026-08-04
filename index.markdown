@@ -24,11 +24,11 @@ permalink: /
     <div style="font-size:0.9rem; color:#4caf50; font-weight:700;">🌿 Миноксидил 2%</div>
 
     <div style="font-size:1.4rem; font-weight:800; margin:8px 0;">
-      3 × 50 ml
+      7 × 50 ml
     </div>
 
     <div style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">
-      30€
+      35€
     </div>
 
     <a href="/minoxidil-2-50/"
@@ -42,11 +42,11 @@ permalink: /
     <div style="font-size:0.9rem; color:#ff7a59; font-weight:700;">🔥 Миноксидил 5%</div>
 
     <div style="font-size:1.4rem; font-weight:800; margin:8px 0;">
-      3 × 50 ml
+      7 × 50 ml
     </div>
 
     <div style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">
-      30€
+      35€
     </div>
 
     <a href="/minoxidil-5-50/"
