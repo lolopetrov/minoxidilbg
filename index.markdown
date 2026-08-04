@@ -189,8 +189,8 @@ permalink: /
 <div class="sticky-offer">
   <div class="sticky-offer-inner">
     <div>
-      <strong>3 × 50 ml</strong><br>
-      <span style="color:#ff7a59;font-weight:800;">30€</span>
+      <strong>7 × 50 ml</strong><br>
+      <span style="color:#ff7a59;font-weight:800;">35€</span>
     </div>
     <a href="#buy-options" class="sticky-btn">🛒 Купи</a>
   </div>
