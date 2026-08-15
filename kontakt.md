@@ -9,7 +9,7 @@ permalink: /kontakt/
 Ако имате въпроси относно нашите продукти или бързи поръчки, свържете се с нас:
 
 📧 **Email:** [minoxidilbg@gmail.com](mailto:minoxidilbg@gmail.com)
-📞 **За поръчки – Телефон:** 0878 914 807  
+
 
 ## Форма за контакт
 
