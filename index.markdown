@@ -184,7 +184,7 @@ permalink: /
 }
 </style>
 
-<a class="whatsapp" href="https://wa.me/359878914807?text=Искам%203x50ml%20миноксидил%20за%2030€">WhatsApp</a>
+
 
 <div class="sticky-offer">
   <div class="sticky-offer-inner">
