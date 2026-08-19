@@ -45,6 +45,6 @@ permalink: /minoxidil-blockchain-trust/
 
 <ul>
   <li><a href="/minoxidil-za-mazhe/">Миноксидил за мъже – какво да очаквате</a></li>
-  <li><a href="/minoxidil-za-jeni/">Миноксидил за жени – безопасност и ефект</a></li>
-  <li><a href="/rkovo-dstvo-za-minoxidil/">Ръководство за Миноксидил</a></li>
+  <li><a href="/minoxidil-za-zheni/">Миноксидил за жени – безопасност и ефект</a></li>
+  <li><a href="/rakovodstvo-za-minoxidil/">Ръководство за Миноксидил</a></li>
 </ul>
