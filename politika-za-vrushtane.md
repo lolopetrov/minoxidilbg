@@ -11,4 +11,4 @@ permalink: /politika-za-vrushtane/
 
 Моля, свържете се с нас преди връщането:  
 📧 **Email:** [minoxidilbg@gmail.com](mailto:minoxidilbg@gmail.com)
-📞 **Телефон:** 0878 914 807  
+ 
