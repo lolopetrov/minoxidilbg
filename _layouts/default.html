@@ -4,30 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ page.title }} | {{ site.title }}</title>
-
+    <!-- SEO generado por jekyll-seo-tag -->
     {%- seo -%}
 
-    <!-- Carga el CSS del tema -->
+    <!-- CSS del tema -->
     <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-13L1MDCBH2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag(){
+        dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
 
-      // 🔹 Configuración básica + privacidad
+      // Configuración básica + privacidad
       gtag('config', 'G-13L1MDCBH2', {
         'send_page_view': true,
         'anonymize_ip': true
       });
 
-      // 🔹 Seguimiento entre tus dominios
+      // Seguimiento entre dominios
       gtag('config', 'G-13L1MDCBH2', {
         'linker': {
-          'domains': ['minoxidilbg.com', 'ru58841hair.com', 'btctoday100k.com']
+          'domains': [
+            'minoxidilbg.com',
+            'ru58841hair.com',
+            'btctoday100k.com'
+          ]
         }
       });
     </script>
@@ -35,22 +42,49 @@
     <!-- Meta Pixel -->
     <script>
       !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '123456789012345'); // ← sustituye por tu Pixel ID real
+      {
+        if(f.fbq)return;
+
+        n=f.fbq=function(){
+          n.callMethod ?
+          n.callMethod.apply(n,arguments) :
+          n.queue.push(arguments)
+        };
+
+        if(!f._fbq)f._fbq=n;
+
+        n.push=n;
+        n.loaded=!0;
+        n.version='2.0';
+        n.queue=[];
+
+        t=b.createElement(e);
+        t.async=!0;
+        t.src=v;
+
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+
+      }(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '123456789012345');
       fbq('track', 'PageView');
     </script>
+
     <noscript>
-      <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"
+        alt=""
+      >
     </noscript>
 
-    <!-- FAQ Schema JSON-LD -->
+
+    <!-- FAQ Schema: SOLO HOME -->
+    {% if page.url == "/" %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,15 +95,15 @@
           "name": "Къде да купя миноксидил в България?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Можете да поръчате оригинален миноксидил директно от MinoxidilBG с доставка до всеки град в България. Предлагаме 2% и 5% разтвор за мъже и жени."
+            "text": "Можете да поръчате миноксидил директно от MinoxidilBG с доставка до всеки град в България. Предлагаме 2% и 5% разтвор за мъже и жени."
           }
         },
         {
           "@type": "Question",
-          "name": "Каква е цената на миноксидил в България?",
+          "name": "Каква е офертата за 50 ml?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Цените ни са конкурентни и се виждат на страниците на продуктите. Доставяме с опция наложен платеж."
+            "text": "Офертата е 7 флакона по 50 ml за 35€."
           }
         },
         {
@@ -77,7 +111,7 @@
           "name": "Колко време трябва да използвам миноксидил?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ефект се постига при редовна употреба поне 3–6 месеца. За задържане на резултатите се препоръчва продължителна терапия."
+            "text": "Първите резултати обикновено се наблюдават след 3 до 6 месеца редовна употреба."
           }
         },
         {
@@ -85,14 +119,16 @@
           "name": "Миноксидил спира ли косопада завинаги?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Не. Ефектът се запазва, докато продуктът се използва. При спиране на терапията косопадът може да се върне."
+            "text": "Не. Ефектът се запазва при постоянна употреба. При прекратяване на употребата косопадът може постепенно да се върне."
           }
         }
       ]
     }
     </script>
+    {% endif %}
 
-    <!-- Product Schema JSON-LD Condicional -->
+
+    <!-- Product Schema: Миноксидил 2% -->
     {% if page.url == "/minoxidil-2/" %}
     <script type="application/ld+json">
     {
@@ -102,9 +138,12 @@
       "image": [
         "https://minoxidilbg.com/assets/images/minoxidil-2-procenta.png"
       ],
-      "description": "Миноксидил 2% е подходящ за жени с начален косопад. Оригинален продукт с клинично доказан ефект и доставка до цяла България.",
+      "description": "Миноксидил 2% е подходящ за жени с начален косопад. Продукт с доставка до цяла България.",
       "sku": "MINOX-2",
-      "brand": { "@type": "Brand", "name": "MinoxidilBG" },
+      "brand": {
+        "@type": "Brand",
+        "name": "MinoxidilBG"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://minoxidilbg.com/minoxidil-2/",
@@ -117,6 +156,8 @@
     </script>
     {% endif %}
 
+
+    <!-- Product Schema: Миноксидил 5% -->
     {% if page.url == "/minoxidil-5/" %}
     <script type="application/ld+json">
     {
@@ -126,9 +167,12 @@
       "image": [
         "https://minoxidilbg.com/assets/images/minoxidil-kosopad-5-procenta.gif"
       ],
-      "description": "Миноксидил 5% е силно решение за мъже с изразен косопад. Поръчайте онлайн с бърза доставка и наложен платеж в България.",
+      "description": "Миноксидил 5% за мъже с косопад. Поръчка онлайн с доставка и наложен платеж в България.",
       "sku": "MINOX-5",
-      "brand": { "@type": "Brand", "name": "MinoxidilBG" },
+      "brand": {
+        "@type": "Brand",
+        "name": "MinoxidilBG"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://minoxidilbg.com/minoxidil-5/",
@@ -143,10 +187,13 @@
 
   </head>
 
+
   <body>
+
     <header>
       {%- include header.html -%}
     </header>
+
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
@@ -154,35 +201,73 @@
       </div>
     </main>
 
+
     <footer>
-      <div class="wrapper" style="text-align:center; margin-top:20px; font-size:0.9rem;">
+      <div
+        class="wrapper"
+        style="text-align:center; margin-top:20px; font-size:0.9rem;"
+      >
         <p>
           <a href="/kontakt/">Контакт</a> |
           <a href="/politika-za-dostavka/">Политика за доставка</a> |
           <a href="/politika-za-vrushtane/">Политика за връщане</a>
         </p>
-        <p style="color:#666;">© {{ site.title }} — Всички права запазени</p>
+
+        <p style="color:#666;">
+          © {{ site.title }} — Всички права запазени
+        </p>
       </div>
     </footer>
 
-    <!-- ✅ Cookie Consent (BG) -->
-    <div id="cookie-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#f8f9fa;padding:15px;text-align:center;box-shadow:0 -2px 6px rgba(0,0,0,0.1);">
+
+    <!-- Cookie Consent -->
+    <div
+      id="cookie-banner"
+      style="
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        background:#f8f9fa;
+        padding:15px;
+        text-align:center;
+        box-shadow:0 -2px 6px rgba(0,0,0,0.1);
+      "
+    >
       <p style="margin:0;font-size:14px;">
-        Използваме „бисквитки“ за анализ и подобряване на услугата. 
-        <button id="accept-cookies" style="background:#007bff;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;margin-left:10px;">
+        Използваме „бисквитки“ за анализ и подобряване на услугата.
+
+        <button
+          id="accept-cookies"
+          style="
+            background:#007bff;
+            color:#fff;
+            border:none;
+            padding:8px 16px;
+            border-radius:4px;
+            cursor:pointer;
+            margin-left:10px;
+          "
+        >
           Приемам
         </button>
       </p>
     </div>
 
+
     <script>
-    document.getElementById('accept-cookies').addEventListener('click', function() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookie-banner').style.display = 'none';
-    });
-    if (localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
+      document
+        .getElementById('accept-cookies')
+        .addEventListener('click', function() {
+
+          localStorage.setItem('cookiesAccepted', 'true');
+
+          document.getElementById('cookie-banner').style.display = 'none';
+        });
+
+      if (localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-banner').style.display = 'none';
+      }
     </script>
 
   </body>
